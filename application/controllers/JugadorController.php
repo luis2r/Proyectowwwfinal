@@ -1,6 +1,6 @@
 <?php
 
-class JuezController extends Zend_Controller_Action
+class JugadorController extends Zend_Controller_Action
 {
 
     public function init()
@@ -13,17 +13,17 @@ class JuezController extends Zend_Controller_Action
         // action body
     }
 
-    public function eliminarAction()
-    {
-        // action body
-    }
-
     public function crearAction()
     {
         // action body
     }
 
     public function modificarAction()
+    {
+        // action body
+    }
+
+    public function eliminarAction()
     {
         // action body
     }
