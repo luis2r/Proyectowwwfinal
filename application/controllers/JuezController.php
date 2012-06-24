@@ -5,29 +5,19 @@ class JuezController extends Zend_Controller_Action
 
     public function init()
     {
-//        $this->initView();
-//        $this->view->baseUrl = $this->_request->getBaseUrl();
-//        /* Initialize action controller here */
-    }
 
+    }
+    
     public function indexAction()
     {
-        
-        
+                
     }
-
-    public function eliminarAction()
-    {
-        // action body
-    }
-
+    
+    
     public function crearAction()
-    {   //titulo para la pagina
-        $this->view->title = "Agregar juez";
-        //valor para <head><title>
-        $this->view->headTitle($this->view->title);        
-        //creo el formulario
-        $form = new Application_Form_Juezformulario();       
+    { 
+        //creo el formulario        
+        $form = new Application_Form_Juezformulario();
         //cambio el texto del boton submit
         $form->submit->setLabel('Agregar Juez');
         //lo asigno oa la accion (la pag web que se mostrara)
@@ -49,7 +39,7 @@ class JuezController extends Zend_Controller_Action
             {
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
-                $juezmodelo=new Application_Model_Juez();
+                $juezmodelo = new Application_Model_Juez();
                 $juezmodelo->codigo = $form->getValue('codigo');
                 $juezmodelo->nombre = $form->getValue('nombre');
                 $juezmodelo->documentoidentidad = $form->getValue('documentoidentidad');               
@@ -74,6 +64,11 @@ class JuezController extends Zend_Controller_Action
                 $form->populate($formData);
             }
         }
+        // action body
+    }
+
+    public function eliminarAction()
+    {
         // action body
     }
 

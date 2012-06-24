@@ -12,22 +12,23 @@ class Application_Form_Juezformulario extends Zend_Form
 //        $id->addFilter('Int');
         
        
-       $codigo = new Zend_Form_Element_Text('nombre');
-        $codigo->setLabel('Codigo del juez:')->setRequired(true)->
+       $codigo = new Zend_Form_Element_Text('codigo');
+       $codigo->setLabel('Codigo:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
 //        creamos <input text> para escribir nombre de juez
+        
         $nombre = new Zend_Form_Element_Text('nombre');
-        $nombre->setLabel('Nombre del juez:')->setRequired(true)->
+        $nombre->setLabel('Nombre:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
 
         // creamos <input text> para escribir nombre de juez
         $documentoidentidad = new Zend_Form_Element_Text('documentoidentidad');
-        $documentoidentidad->setLabel('Documento de identidad:')->setRequired(true)->
+        $documentoidentidad->setLabel('Documento No:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
         
         // creamos <input text> para escribir la experiencia
         $experiencia = new Zend_Form_Element_Text('experiencia');
-        $experiencia->setLabel('Experiencia años:')->setRequired(true)->
+        $experiencia->setLabel('Experiencia en años:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
         
         // creamos <input text> para escribir el codigo de torneo
@@ -40,7 +41,7 @@ class Application_Form_Juezformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agregolos objetos creados al formulario
-        $this->addElements(array($codigo,$nombre,$documentoidentidad,$experiencia,$codigotorneo, $submit));
+        $this->addElements(array($codigo,$nombre,$documentoidentidad,$experiencia,$codigotorneo,$submit));
         
         
         /* Form Elements & Other Definitions Here ... */
