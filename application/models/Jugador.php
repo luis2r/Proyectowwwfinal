@@ -1,6 +1,6 @@
 <?php
 
-class Application_Model_Jugador
+class Application_Model_Jugador extends Shanty_Mongo_Document
 {
     protected static $_db = 'proyecto';
     protected static $_collection = 'www';
