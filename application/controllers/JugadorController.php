@@ -4,9 +4,7 @@ class JugadorController extends Zend_Controller_Action
 {
 
     public function init()
-    {
-        $this->initView();
-        $this->view->baseUrl = $this->_request->getBaseUrl();
+    {        
     }
 
     public function indexAction()
@@ -16,15 +14,11 @@ class JugadorController extends Zend_Controller_Action
 
     public function crearAction()
     {
-        //titulo para la pagina
-        $this->view->title = "Agregar jugador";
-        //valor para <head><title>
-        $this->view->headTitle($this->view->title);
-        //creo el formulario
-        $form = new Application_Form_Jugadorformulario ();
+       //creo el formulario
+        $form = new Application_Form_Jugadorformulario();
         //cambio el texto del boton submit
         $form->submit->setLabel('Agregar jugador');
-        //lo asigno a la accion (la pag web que se mostrara)
+        //lo asigno oa la accion (la pag web que se mostrara)
         $this->view->form = $form;
         
         //los formularios envian sus datos a traves de POST
@@ -43,22 +37,16 @@ class JugadorController extends Zend_Controller_Action
             {
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
-                $jugador_id = $form->getValue('jugador_id');
-                $nombre = $form->getValue('nombre');
-                $documento = $form->getValue('documento');
-                $categoria = $form->getValue('categoria');
-                $modalidad = $form->getValue('modalidad');
-                $tipo = $form->getValue('tipo');
+                $jugadorCrear = new Application_Model_Jugador();
+                $jugadorCrear->codigo = $form->getValue('codigo');
+                $jugadorCrear->nombre = $form->getValue('nombre');
+                $jugadorCrear->documento = $form->getValue('documento');
+                $jugadorCrear->categoria = $form->getValue('categoria');
+                $jugadorCrear->modalidad = $form->getValue('modalidad');
+                $jugadorCrear->tipo = $form->getValue('tipo');
+                $status = $jugadorCrear->save();
                 
-                //creo objeto Album que controla la talba Album de la base de datos
-                $jugadores= new Application_Model_DBTable_Jugador();
-                //llamo a la funcion agregar, con los datos que recibi del form
-                $albums->agregar($jugador_id,$nombre,$documento,$categoria,$modalidad,$tipo);
-                
-                //indico que despues de haber agregado el album,
-                //me redirija a la accion index de AlbumController, es decir,
-                //a la pagina que me muestra el listado de albumes
-                $this->_helper->redirector('crear');
+                 $this->_helper->redirector('index');
             }
             //si los datos del formulario no son validos, es decir, falta ingresar
             //algunos o el formato es incorrecto...

@@ -4,10 +4,13 @@ class Application_Form_Jugadorformulario extends Zend_Form
 {
     public function init()
     {
-        $this->setName('jugador');
+        $this->setName('Jugador');
         
-        $id = new Zend_Form_Element_Hidden('id');
-        $id->addFilter($id);
+        //creamos <input text> para escribir nombre album
+        $codigo = new Zend_Form_Element_Text('codigo');
+        $codigo->setLabel('Codigo:')->setRequired(true)->
+                addFilter('StripTags')->addFilter('StringTrim')->
+                addValidator('NotEmpty');        
         
         //creamos <input text> para escribir nombre del jugador
         $nombre = new Zend_Form_Element_Text('nombre');
@@ -44,7 +47,7 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($id,$nombre,$documento,$categoria,$modalidad,$tipo,submit));
+        $this->addElements(array($codigo,$nombre,$documento,$categoria,$modalidad,$tipo,$submit));
     }
 }
 

@@ -44,6 +44,7 @@
       <modelsDirectory>
         <modelFile modelName="Juez"/>
         <modelFile modelName="Torneo"/>
+        <modelFile modelName="Jugador"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>

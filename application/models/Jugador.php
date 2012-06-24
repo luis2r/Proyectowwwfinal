@@ -1,18 +1,16 @@
 <?php
 
-class Application_Model_Torneo extends Shanty_Mongo_Document
+class Application_Model_Jugador
 {
-
     protected static $_db = 'proyecto';
     protected static $_collection = 'www';
     protected static $_requirements = array(
         'codigo' => 'Required',
         'nombre' => 'Required',
+        'documento' => 'Required',
+        'categoria' => 'Required',
         'modalidad' => 'Required',
-        'duracion' => 'Required',
-        'fechainicio' => 'Required',
-        'fechafin' => 'Required',
-        'descripcion' => 'Required',
+        'tipo' => 'Required',
 );
 
 }
