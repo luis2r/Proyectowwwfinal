@@ -17,13 +17,17 @@
           <actionMethod actionName="crear"/>
           <actionMethod actionName="modificar"/>
           <actionMethod actionName="eliminar"/>
-        </controllerFile>        
+        </controllerFile>
         <controllerFile controllerName="Juez">
           <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
-      <layoutsDirectory enabled="false"/>
+      <layoutsDirectory>
+        <layoutScriptsDirectory>
+          <layoutScriptFile layoutName="layout"/>
+        </layoutScriptsDirectory>
+      </layoutsDirectory>
       <modelsDirectory/>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -45,7 +49,7 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Torneo">
             <viewScriptFile forActionName="eliminar"/>
-          </viewControllerScriptsDirectory>          
+          </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Juez">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
