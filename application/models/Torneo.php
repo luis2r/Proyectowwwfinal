@@ -2,7 +2,6 @@
 
 class Application_Model_Torneo extends Shanty_Mongo_Document
 {
-
     protected static $_db = 'proyecto';
     protected static $_collection = 'www';
     protected static $_requirements = array(

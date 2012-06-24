@@ -45,7 +45,4 @@ class Application_Form_Juezformulario extends Zend_Form
         
         /* Form Elements & Other Definitions Here ... */
     }
-
-
 }
-
