@@ -43,6 +43,7 @@
       </layoutsDirectory>
       <modelsDirectory>
         <modelFile modelName="Juez"/>
+        <modelFile modelName="Torneo"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
