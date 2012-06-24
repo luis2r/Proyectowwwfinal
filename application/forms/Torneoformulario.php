@@ -8,8 +8,6 @@ class Application_Form_Torneoformulario extends Zend_Form
         /* Form Elements & Other Definitions Here ... */
                $this->setName('Torneo');
 
-
-
         //creamos <input text> para escribir nombre album
         $codigo = new Zend_Form_Element_Text('codigo');
         $codigo->setLabel('Codigo:')->setRequired(true)->

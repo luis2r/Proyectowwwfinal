@@ -5,9 +5,9 @@ class JuezController extends Zend_Controller_Action
 
     public function init()
     {
-        $this->initView();
-        $this->view->baseUrl = $this->_request->getBaseUrl();
-        /* Initialize action controller here */
+//        $this->initView();
+//        $this->view->baseUrl = $this->_request->getBaseUrl();
+//        /* Initialize action controller here */
     }
 
     public function indexAction()
@@ -49,12 +49,15 @@ class JuezController extends Zend_Controller_Action
             {
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
-                $documentoidentidad = $form->getValue('documentoidentidad');
-                $nombre = $form->getValue('nombre');
-                $experiencia =$form->getvalue('experiencia');
-                $codigotorneo=$form ->getValue('codigotorneo');
+                $juezmodelo=new Application_Model_Juez();
+                $juezmodelo->codigo = $form->getValue('codigo');
+                $juezmodelo->nombre = $form->getValue('nombre');
+                $juezmodelo->documentoidentidad = $form->getValue('documentoidentidad');               
+                $juezmodelo->experiencia =$form->getvalue('experiencia');
+                $juezmodelo->codigotorneo=$form ->getValue('codigotorneo');
                //creo objeto Juez del modelo que controla la 
-               
+                 $status = $juezmodelo->save();
+
                //comentado porque ahi va lo de Shanti y se crea las funciones en juezmodel
 //                $juezmodel= new Application_Model_Juez();              
 //                $juez->agregra($documentoidentidad,$nombre,$experiencia,$codigotorneo);
