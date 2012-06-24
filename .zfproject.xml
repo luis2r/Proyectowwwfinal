@@ -17,6 +17,9 @@
           <actionMethod actionName="crear"/>
           <actionMethod actionName="modificar"/>
           <actionMethod actionName="eliminar"/>
+        </controllerFile>        
+        <controllerFile controllerName="Juez">
+          <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
@@ -42,6 +45,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Torneo">
             <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>          
+          <viewControllerScriptsDirectory forControllerName="Juez">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
