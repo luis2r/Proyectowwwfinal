@@ -41,9 +41,13 @@ class JugadorController extends Zend_Controller_Action
                 $jugadorCrear->codigo = $form->getValue('codigo');
                 $jugadorCrear->nombre = $form->getValue('nombre');
                 $jugadorCrear->documento = $form->getValue('documento');
-                $jugadorCrear->categoria = $form->getValue('categoria');
                 $jugadorCrear->modalidad = $form->getValue('modalidad');
+                $jugadorCrear->torneo = $form->getValue('torneo');
                 $jugadorCrear->tipo = $form->getValue('tipo');
+                $jugadorCrear->categoria = $form->getValue('categoria');
+                $jugadorCrear->ranking = $form->getValue('ranking');
+                $jugadorCrear->grupo = $form->getValue('grupo');
+                $jugadorCrear->pareja = $form->getValue('pareja');
                 $status = $jugadorCrear->save();
                 
                  $this->_helper->redirector('index');
