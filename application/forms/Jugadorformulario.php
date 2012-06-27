@@ -1,5 +1,4 @@
 <?php
-
 class Application_Form_Jugadorformulario extends Zend_Form
 {
     public function init()
@@ -30,23 +29,18 @@ class Application_Form_Jugadorformulario extends Zend_Form
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
         
-//        //creamos <input text> para escribir el torneo del jugador
-//        $torneo = new Zend_Form_Element_Text('torneo');
-//        $torneo->setLabel('Torneo:')->setRequired(true)->
-//                addFilter('StripTags')->addFilter('StringTrim')->
-//                addValidator('NotEmpty');
-        
-        //creamos select para seleccionar artista
-        $torneo = new Zend_Form_Element_Select('codigo');
-        $torneo->setLabel('Torneo:')->setRequired(true);
-        //cargo en un select los tipos de usuario
-        $collection = new Application_Model_Torneo();
-        //obtengo listado de todos los artistas y los recorro en un
-        //arreglo para agregarlos a la lista
-        foreach ($collection->_getMongoCollection() as $c)
-        {
-            $torneo->addMultiOption($c->nombre);
-        }
+       
+        //creamos select para seleccionar torneo
+        $torneo = new Zend_Form_Element_Select('torneo');
+        $torneo->setLabel('Torneo')->setRequired(true);
+        $connection = new Mongo();
+        $database = $connection->selectDB('proyecto');
+        $cursor = $database->selectCollection('torneo');
+        $collection = $cursor->find();           
+        while($collection->hasNext()):
+            $article = $collection->getNext();
+            $torneo->addMultiOption($article['_id'],$article['nombre']);
+        endwhile;
         
         //creamos <input text> para escribir el tipo del jugador
         $tipo = new Zend_Form_Element_Text('tipo');

@@ -1,5 +1,4 @@
 <?php
-
 class Application_Model_Torneo extends Shanty_Mongo_Document
 {
     protected static $_db = 'proyecto';
@@ -13,6 +12,6 @@ class Application_Model_Torneo extends Shanty_Mongo_Document
         'fechafin' => 'Required',
         'descripcion' => 'Required',
 );
-
 }
+?>
 

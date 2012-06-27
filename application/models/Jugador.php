@@ -9,13 +9,13 @@ class Application_Model_Jugador extends Shanty_Mongo_Document
         'nombre' => 'Required',
         'documento' => 'Required',
         'modalidad' => 'Required',
-        'torneo' => 'Required',
+        'torneo' => array('Collection:torneo', 'AsReference'),
         'tipo' => 'Required',
         'categoria' => 'Required',
         'ranking' => 'Required',
         'grupo' => 'Required',
         'pareja' => 'Required',
 );
-
 }
+?>
 

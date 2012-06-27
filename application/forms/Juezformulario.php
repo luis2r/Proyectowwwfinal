@@ -11,9 +11,8 @@ class Application_Form_Juezformulario extends Zend_Form
 //        $id = new Zend_Form_Element_Hidden('id');
 //        $id->addFilter('Int');
         
-       
-       $codigo = new Zend_Form_Element_Text('codigo');
-       $codigo->setLabel('Codigo:')->setRequired(true)->
+        $codigo = new Zend_Form_Element_Text('codigo');
+        $codigo->setLabel('Codigo:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
 //        creamos <input text> para escribir nombre de juez
         
