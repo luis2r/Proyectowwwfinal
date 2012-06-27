@@ -30,17 +30,23 @@ class Application_Form_Juezformulario extends Zend_Form
         $experiencia->setLabel('Experiencia en años:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
         
-        // creamos <input text> para escribir el codigo de torneo
-        $codigotorneo = new Zend_Form_Element_Text('codigotorneo');
-        $codigotorneo->setLabel('Codigo Torneo:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
-        
+         //creamos select para seleccionar torneo
+        $torneo = new Zend_Form_Element_Select('torneo');
+        $torneo->setLabel('Torneo:')->setRequired(true);
+        $connection = new Mongo();
+        $database = $connection->selectDB('proyecto');
+        $cursor = $database->selectCollection('torneo');
+        $collection = $cursor->find();           
+        while($collection->hasNext()):
+            $datos = $collection->getNext();
+            $torneo->addMultiOption($datos['_id'],$datos['nombre']);
+        endwhile;        
         
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');
         
         //agregolos objetos creados al formulario
-        $this->addElements(array($codigo,$nombre,$documentoidentidad,$experiencia,$codigotorneo,$submit));
+        $this->addElements(array($codigo, $nombre, $documentoidentidad, $experiencia, $torneo, $submit));
         
         
         /* Form Elements & Other Definitions Here ... */
