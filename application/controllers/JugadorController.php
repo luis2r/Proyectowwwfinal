@@ -94,7 +94,7 @@ class JugadorController extends Zend_Controller_Action {
                 $form->populate($formData);
             }
         }
-    }
+    }//fin action crear.....
 
     public function modificarAction() {
         // action body

@@ -8,6 +8,6 @@ class Application_Model_Juez extends Shanty_Mongo_Document
         'nombre' => 'Required',
         'documentoidentidad' => 'Required',
         'experiencia' => 'Required',
-        'codigotorneo' => 'Required',
+        'torneo' => array('Collection:torneo', 'AsReference'),
 );
 }
