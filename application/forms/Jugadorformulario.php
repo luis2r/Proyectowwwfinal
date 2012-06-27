@@ -23,25 +23,22 @@ class Application_Form_Jugadorformulario extends Zend_Form
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
                         
-        //creamos <input text> para escribir la modalidad del jugador
-        $modalidad = new Zend_Form_Element_Text('modalidad');
-        $modalidad->setLabel('Modalidad:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
+        $modalidad = $this->createElement('select', 'modalidad');
+        $modalidad->setLabel("Modalidad:")->setRequired(true);
+        $modalidad->addMultiOption('Masculino', 'Masculino');        
+        $modalidad->addMultiOption('Femenino', 'Femenino'); 
         
        
         //creamos select para seleccionar torneo
-        $torneo = new Zend_Form_Element_Select('torneo');
-        $torneo->setLabel('Torneo:')->setRequired(true);
-        $connection = new Mongo();
-        $database = $connection->selectDB('proyecto');
-        $cursor = $database->selectCollection('torneo');
-        $collection = $cursor->find();           
-        while($collection->hasNext()):
-            $datos = $collection->getNext();
-            $torneo->addMultiOption($datos['_id'],$datos['nombre']);
-        endwhile;
+        $torneo = $this->createElement('select', 'torneo');
+        $torneo->setLabel("Torneo:")->setRequired(true);
+        $datos = Application_Model_Torneo::all();
+        foreach($datos as $c)
+        {
+            $torneo->addMultiOption($c->_id,$c->nombre);
+        }
         
+                      
         //creamos <input text> para escribir el tipo del jugador
         $tipo = new Zend_Form_Element_Text('tipo');
         $tipo->setLabel('Tipo:')->setRequired(true)->

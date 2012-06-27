@@ -21,14 +21,9 @@ class Application_Form_Torneoformulario extends Zend_Form
 
             
         $modalidad = $this->createElement('select', 'modalidad');
-        $modalidad->setLabel("Modalidad:");
+        $modalidad->setLabel("Modalidad:")->setRequired(true);
         $modalidad->addMultiOption('Masculino', 'Masculino');        
-        $modalidad->addMultiOption('Femenino', 'Femenino');        
-        $this->addElement($modalidad);
-//        $modalidad = new Zend_Form_Element_Text('modalidad');
-//        $modalidad->setLabel('Modalidad:')->setRequired(true)->
-//                addFilter('StripTags')->addFilter('StringTrim')->
-//                addValidator('NotEmpty');
+        $modalidad->addMultiOption('Femenino', 'Femenino'); 
         
         $duracion = new Zend_Form_Element_Text('duracion');
         $duracion->setLabel('Duracion:')->setRequired(true)->
