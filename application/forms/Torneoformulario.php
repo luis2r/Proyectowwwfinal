@@ -4,9 +4,9 @@ class Application_Form_Torneoformulario extends Zend_Form
 {
 
     public function init()
-        {
+    {
         /* Form Elements & Other Definitions Here ... */
-               $this->setName('Torneo');
+        $this->setName('Torneo');
 
         //creamos <input text> para escribir nombre album
         $codigo = new Zend_Form_Element_Text('codigo');
@@ -19,10 +19,15 @@ class Application_Form_Torneoformulario extends Zend_Form
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
 
-        $modalidad = new Zend_Form_Element_Text('modalidad');
-        $modalidad->setLabel('Modalidad:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
+        $modalidad = new Zend_Form();
+        $modalidad->addElement('select','cars',array(
+        'multiOptions' => array('f' => 'Femenino', 'm' => 'Masculino')));
+        $select = $modalidad->getElement('cars');
+        $select->setValue('f');
+//        $modalidad = new Zend_Form_Element_Text('modalidad');
+//        $modalidad->setLabel('Modalidad:')->setRequired(true)->
+//                addFilter('StripTags')->addFilter('StringTrim')->
+//                addValidator('NotEmpty');
         
         $duracion = new Zend_Form_Element_Text('duracion');
         $duracion->setLabel('Duracion:')->setRequired(true)->
@@ -30,29 +35,25 @@ class Application_Form_Torneoformulario extends Zend_Form
                 addValidator('NotEmpty');
         
         $fechainicio = new Zend_Form_Element_Text('fechainicio');
-        $fechainicio->setLabel('fecha inicio:')->setRequired(true)->
+        $fechainicio->setLabel('Fecha de inicio:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
 
         $fechafin = new Zend_Form_Element_Text('fechafin');
-        $fechafin->setLabel('fecha fin:')->setRequired(true)->
+        $fechafin->setLabel('Fecha de finalizacion:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
         
         $descripcion = new Zend_Form_Element_Text('descripcion');
-        $descripcion->setLabel('descripcion:')->setRequired(true)->
+        $descripcion->setLabel('Descripcion:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
         
-        
-//boton para enviar formulario
+        //boton para enviar formulario
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');
         
         //agregolos objetos creados al formulario
         $this->addElements(array($codigo,$nombre,$modalidad,$duracion,$fechainicio,$fechafin,$descripcion, $submit));
     }
-
-
 }
-

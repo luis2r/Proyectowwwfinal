@@ -32,14 +32,14 @@ class Application_Form_Jugadorformulario extends Zend_Form
        
         //creamos select para seleccionar torneo
         $torneo = new Zend_Form_Element_Select('torneo');
-        $torneo->setLabel('Torneo')->setRequired(true);
+        $torneo->setLabel('Torneo:')->setRequired(true);
         $connection = new Mongo();
         $database = $connection->selectDB('proyecto');
         $cursor = $database->selectCollection('torneo');
         $collection = $cursor->find();           
         while($collection->hasNext()):
-            $article = $collection->getNext();
-            $torneo->addMultiOption($article['_id'],$article['nombre']);
+            $datos = $collection->getNext();
+            $torneo->addMultiOption($datos['_id'],$datos['nombre']);
         endwhile;
         
         //creamos <input text> para escribir el tipo del jugador
