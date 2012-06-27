@@ -30,11 +30,24 @@
           <actionMethod actionName="modificar"/>
           <actionMethod actionName="eliminar"/>
         </controllerFile>
+        <controllerFile controllerName="Canchas">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="crear"/>
+          <actionMethod actionName="eliminar"/>
+          <actionMethod actionName="actualizas"/>
+        </controllerFile>
+        <controllerFile controllerName="Grupo">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="crear"/>
+          <actionMethod actionName="eliminar"/>
+          <actionMethod actionName="modificar"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Torneoformulario"/>
         <formFile formName="Juezformulario"/>
         <formFile formName="Jugadorformulario"/>
+        <formFile formName="Canchas"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -45,6 +58,8 @@
         <modelFile modelName="Juez"/>
         <modelFile modelName="Torneo"/>
         <modelFile modelName="Jugador"/>
+        <modelFile modelName="Canchas"/>
+        <modelFile modelName="Grupo"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -89,6 +104,30 @@
             <viewScriptFile forActionName="crear"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Juez">
+            <viewScriptFile forActionName="modificar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Canchas">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Canchas">
+            <viewScriptFile forActionName="crear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Canchas">
+            <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Canchas">
+            <viewScriptFile forActionName="actualizas"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Grupo">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Grupo">
+            <viewScriptFile forActionName="crear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Grupo">
+            <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Grupo">
             <viewScriptFile forActionName="modificar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

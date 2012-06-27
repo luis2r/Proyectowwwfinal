@@ -48,7 +48,7 @@ class TorneoController extends Zend_Controller_Action {
                 $status = $torneoCrear->save();
 
                 //creo objeto Album que controla la talba Album de la base de datos
-//                $albums = new Application_Model_DbTable_Album ();
+//  $albums = new Application_Model_DbTable_Album ();
 //                //llamo a la funcion agregar, con los datos que recibi del form
 //                $albums->agregar($artista_id, $nombre, $fecha, $descripcion);
                 //indico que despues de haber agregado el album,
