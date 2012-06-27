@@ -22,8 +22,8 @@ class Application_Form_Torneoformulario extends Zend_Form
             
         $modalidad = $this->createElement('select', 'modalidad');
         $modalidad->setLabel("Modalidad:");
-        $modalidad->addMultiOption('Femenino', 'Masculino');
-        $modalidad->addMultiOption('Femenino', 'Masculino');
+        $modalidad->addMultiOption('Masculino', 'Masculino');        
+        $modalidad->addMultiOption('Femenino', 'Femenino');        
         $this->addElement($modalidad);
 //        $modalidad = new Zend_Form_Element_Text('modalidad');
 //        $modalidad->setLabel('Modalidad:')->setRequired(true)->
