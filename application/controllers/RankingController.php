@@ -1,20 +1,24 @@
-<?php
+    <?php
 
-class JugadorController extends Zend_Controller_Action 
+class RankingController extends Zend_Controller_Action
 {
-    public function init() {
-        
+
+    public function init()
+    {
+        /* Initialize action controller here */
     }
 
-    public function indexAction() {
+    public function indexAction()
+    {
         // action body
     }
 
-    public function crearAction() {
+    public function crearAction()
+    {
         //creo el formulario
-        $form = new Application_Form_Jugadorformulario();
+        $form = new Application_Form_Rankingformulario();
         //cambio el texto del boton submit
-        $form->submit->setLabel('Agregar jugador');
+        $form->submit->setLabel('Agregar ranking');
         //lo asigno oa la accion (la pag web que se mostrara)
         $this->view->form = $form;
 
@@ -34,15 +38,10 @@ class JugadorController extends Zend_Controller_Action
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
                 $codigo = $form->getValue('codigo');
-                $nombre = $form->getValue('nombre');
-                $documento = $form->getValue('documento');
-                $modalidad = $form->getValue('modalidad');
-                $torneo = $form->getValue('torneo');
-                $tipo = $form->getValue('tipo');
-                $categoria = $form->getValue('categoria');
-                $grupo = $form->getValue('grupo');
-                $pareja = $form->getValue('pareja');
-//                $status = $jugadorCrear->save();
+                $posicion = $form->getValue('posicion');
+                $jugador = $form->getValue('jugador');
+                $categoriajugador = $form->getValue('categoriajugador');
+//              $status = $jugadorCrear->save();
 
                 try {
                     // open connection to MongoDB server
@@ -50,18 +49,13 @@ class JugadorController extends Zend_Controller_Action
                     // access database
                     $db = $conn->proyecto;
                     // access collection
-                    $collection = $db->jugador;
+                    $collection = $db->ranking;
                     // insert a new document
                     $item = array(
                         'codigo' => $codigo,
-                        'nombre' => $nombre,
-                        'documento' => $documento,
-                        'modalidad' => $modalidad,
-                        'torneo' => $torneo,
-                        'tipo' => $tipo,
-                        'categoria' => $categoria,
-                        'grupo' => $grupo,
-                        'pareja' => $pareja
+                        'posicion' => $posicion,
+                        'jugador' => $jugador,
+                        'categoriajugador' => $categoriajugador,                        
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -82,14 +76,22 @@ class JugadorController extends Zend_Controller_Action
                 $form->populate($formData);
             }
         }
-    }//fin action crear.....
+    }
 
-    public function modificarAction() {
+    public function editarAction()
+    {
         // action body
     }
 
-    public function eliminarAction() {
+    public function eliminarAction()
+    {
         // action body
     }
 }
+
+
+
+
+
+
 

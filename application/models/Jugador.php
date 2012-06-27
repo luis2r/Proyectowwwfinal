@@ -12,7 +12,6 @@ class Application_Model_Jugador extends Shanty_Mongo_Document
             'torneo' => 'Required',
             'tipo' => 'Required',
             'categoria' => 'Required',
-            'ranking' => 'Required',
             'grupo' => 'Required',
             'pareja' => 'Required',
     );

@@ -52,12 +52,6 @@ class Application_Form_Jugadorformulario extends Zend_Form
             $categoria->addMultiOption($c->_id,$c->nombre);
         }
         
-        //creamos <input text> para escribir el ranking del jugador
-        $ranking = new Zend_Form_Element_Text('ranking');
-        $ranking->setLabel('Ranking:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
-        
         //creamos <input text> para escribir el grupo del jugador
         $grupo = new Zend_Form_Element_Text('grupo');
         $grupo->setLabel('Grupo:')->setRequired(true)->
@@ -75,7 +69,7 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($codigo,$nombre,$documento,$modalidad,$torneo,$tipo,$categoria,$ranking,$grupo,$pareja,$submit));
+        $this->addElements(array($codigo,$nombre,$documento,$modalidad,$torneo,$tipo,$categoria,$grupo,$pareja,$submit));
     }
 }
 

@@ -48,6 +48,12 @@
           <actionMethod actionName="editar"/>
           <actionMethod actionName="eliminar"/>
         </controllerFile>
+        <controllerFile controllerName="Ranking">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="crear"/>
+          <actionMethod actionName="editar"/>
+          <actionMethod actionName="eliminar"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Torneoformulario"/>
@@ -57,6 +63,7 @@
         <formFile formName="Canchasformulario"/>
         <formFile formName="Categoria"/>
         <formFile formName="Categoriaformulario"/>
+        <formFile formName="Rankingformulario"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -70,6 +77,8 @@
         <modelFile modelName="Canchas"/>
         <modelFile modelName="Grupo"/>
         <modelFile modelName="Categoria"/>
+        <modelFile modelName="Rn"/>
+        <modelFile modelName="Ranking"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -150,6 +159,18 @@
             <viewScriptFile forActionName="editar"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Categoria">
+            <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Ranking">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Ranking">
+            <viewScriptFile forActionName="crear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Ranking">
+            <viewScriptFile forActionName="editar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Ranking">
             <viewScriptFile forActionName="eliminar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
