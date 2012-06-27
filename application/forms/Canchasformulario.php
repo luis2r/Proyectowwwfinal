@@ -1,11 +1,11 @@
 <?php
 
-class Application_Form_Canchas extends Zend_Form
+class Application_Form_Canchasformulario extends Zend_Form
 {
 
-    public function init()
+  public function init()
     {
-        $this->setName('canchas');
+      $this->setName('canchas');
        
        //campo hidden para guardar id de de juez
 //        $id = new Zend_Form_Element_Hidden('id');
@@ -33,10 +33,13 @@ class Application_Form_Canchas extends Zend_Form
          
         // creamos <input text> para escribir nombre de juez
         $torneo = new Zend_Form_Element_Text('torneo');
-        $torneo->setLabel('Torneo :')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
+        $torneo->setLabel('Torneo :')->setRequired(true)->addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
+     
+        $submit = new Zend_Form_Element_Submit('submit');
+        $submit->setAttrib('id', 'submitbutton');
         
-        
+         //agregolos objetos creados al formulario
+        $this->addElements(array($codigo,  $ubicacion, $fecha,$hora ,$torneo, $submit));
         
     }
 

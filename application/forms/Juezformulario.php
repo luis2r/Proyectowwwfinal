@@ -46,7 +46,7 @@ class Application_Form_Juezformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agregolos objetos creados al formulario
-        $this->addElements(array($codigo,$nombre,$documentoidentidad,$experiencia,$torneo,$submit));
+        $this->addElements(array($codigo, $nombre, $documentoidentidad, $experiencia, $torneo, $submit));
         
         
         /* Form Elements & Other Definitions Here ... */

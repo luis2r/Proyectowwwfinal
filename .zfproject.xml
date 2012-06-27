@@ -48,6 +48,7 @@
         <formFile formName="Juezformulario"/>
         <formFile formName="Jugadorformulario"/>
         <formFile formName="Canchas"/>
+        <formFile formName="Canchasformulario"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
