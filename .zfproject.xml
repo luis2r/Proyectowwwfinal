@@ -69,6 +69,7 @@
         <modelFile modelName="Jugador"/>
         <modelFile modelName="Canchas"/>
         <modelFile modelName="Grupo"/>
+        <modelFile modelName="Categoria"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>

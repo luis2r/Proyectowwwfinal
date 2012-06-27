@@ -43,11 +43,14 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $tipo->addMultiOption('Individual', 'Individual');        
         $tipo->addMultiOption('Pareja', 'Pareja');
         
-        //creamos <input text> para escribir la categoria del jugador
-        $categoria = new Zend_Form_Element_Text('categoria');
-        $categoria->setLabel('Categoria:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
+        //creamos select para seleccionar torneo
+        $categoria = $this->createElement('select', 'categoria');
+        $categoria->setLabel("Categoria:")->setRequired(true);
+        $datos = Application_Model_Categoria::all();
+        foreach($datos as $c)
+        {
+            $categoria->addMultiOption($c->_id,$c->nombre);
+        }
         
         //creamos <input text> para escribir el ranking del jugador
         $ranking = new Zend_Form_Element_Text('ranking');
