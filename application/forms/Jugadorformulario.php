@@ -26,8 +26,7 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $modalidad = $this->createElement('select', 'modalidad');
         $modalidad->setLabel("Modalidad:")->setRequired(true);
         $modalidad->addMultiOption('Masculino', 'Masculino');        
-        $modalidad->addMultiOption('Femenino', 'Femenino'); 
-        
+        $modalidad->addMultiOption('Femenino', 'Femenino');        
        
         //creamos select para seleccionar torneo
         $torneo = $this->createElement('select', 'torneo');
@@ -37,13 +36,12 @@ class Application_Form_Jugadorformulario extends Zend_Form
         {
             $torneo->addMultiOption($c->_id,$c->nombre);
         }
-        
-                      
+
         //creamos <input text> para escribir el tipo del jugador
-        $tipo = new Zend_Form_Element_Text('tipo');
-        $tipo->setLabel('Tipo:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
+        $tipo = $this->createElement('select', 'tipo');
+        $tipo->setLabel("Tipo:")->setRequired(true);
+        $tipo->addMultiOption('Individual', 'Individual');        
+        $tipo->addMultiOption('Pareja', 'Pareja');
         
         //creamos <input text> para escribir la categoria del jugador
         $categoria = new Zend_Form_Element_Text('categoria');
