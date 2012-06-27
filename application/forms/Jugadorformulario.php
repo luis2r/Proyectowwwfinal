@@ -52,11 +52,15 @@ class Application_Form_Jugadorformulario extends Zend_Form
             $categoria->addMultiOption($c->_id,$c->nombre);
         }
         
-        //creamos <input text> para escribir el grupo del jugador
-        $grupo = new Zend_Form_Element_Text('grupo');
-        $grupo->setLabel('Grupo:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
+        //creamos select para seleccionar torneo
+        $grupo = $this->createElement('select', 'grupo');
+        $grupo->setLabel("Grupo:")->setRequired(true);
+        $grupo->addMultiOption(11111,'Ninguno');
+        $datos = Application_Model_Grupo::all();
+        foreach($datos as $c)
+        {
+            $grupo->addMultiOption($c->_id,$c->nombre);
+        }
         
         //creamos <input text> para escribir pareja del jugador
         $pareja = new Zend_Form_Element_Text('pareja');

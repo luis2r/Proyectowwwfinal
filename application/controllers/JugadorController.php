@@ -10,7 +10,8 @@ class JugadorController extends Zend_Controller_Action
         // action body
     }
 
-    public function crearAction() {
+    public function crearAction() 
+    {
         //creo el formulario
         $form = new Application_Form_Jugadorformulario();
         //cambio el texto del boton submit
