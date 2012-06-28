@@ -11,8 +11,6 @@ class TorneoController extends Zend_Controller_Action {
     }
 
     public function crearAction() {
-        // action body
-        // action body
         //creo el formulario
         $form = new Application_Form_Torneoformulario();
         //cambio el texto del boton submit
@@ -32,28 +30,43 @@ class TorneoController extends Zend_Controller_Action {
             //campos requeridos se hallan llenado, que el formato de la fecha
             //sea el correcto, etc
             if ($form->isValid($formData)) {
+                //aca ya estamos seguros de que los datos son validos
+                //ahora los extraemos como se ve abajo
+//                $jugadorCrear = new Application_Model_Jugador();
+                $codigo = $form->getValue('codigo');
+                $nombre = $form->getValue('nombre');
+                $modalidad = $form->getValue('modalidad');
+                $duracion = $form->getValue('duracion');
+                $fechainicio = $form->getValue('fechainicio');
+                $fechafin = $form->getValue('fechafin');
+                $descripcion = $form->getValue('descripcion');                
+//              $status = $jugadorCrear->save();
 
-
-                //como mi fecha viene en el formato dia-mes-año y Mysql
-                //guarda fechas en la forma año-mes-dia, procedo a cambiar el formato
-                //cambio formato de fecha para mysql
-                $torneoCrear = new Application_Model_Torneo();
-                $torneoCrear->codigo = $form->getValue('codigo');
-                $torneoCrear->nombre = $form->getValue('nombre');
-                $torneoCrear->modalidad = $form->getValue('modalidad');
-                $torneoCrear->duracion = $form->getValue('duracion');
-                $torneoCrear->fechainicio = $form->getValue('fechainicio');
-                $torneoCrear->fechafin = $form->getValue('fechafin');
-                $torneoCrear->descripcion = $form->getValue('descripcion');
-                $status = $torneoCrear->save();
-
-                //creo objeto Album que controla la talba Album de la base de datos
-//  $albums = new Application_Model_DbTable_Album ();
-//                //llamo a la funcion agregar, con los datos que recibi del form
-//                $albums->agregar($artista_id, $nombre, $fecha, $descripcion);
-                //indico que despues de haber agregado el album,
-                //me redirija a la accion index de AlbumController, es decir,
-                //a la pagina que me muestra el listado de albumes
+                try {
+                    // open connection to MongoDB server
+                    $conn = new Mongo('localhost');
+                    // access database
+                    $db = $conn->proyecto;
+                    // access collection
+                    $collection = $db->torneo;
+                    // insert a new document
+                    $item = array(
+                        'codigo' => $codigo,
+                        'nombre' => $nombre,
+                        'modalidad' => $modalidad,
+                        'duracion' => $duracion,
+                        'fechainicio' => $fechainicio,
+                        'fechafin' => $fechafin,
+                        'descripcion' => $descripcion                        
+                    );
+                    $collection->insert($item);
+                    // disconnect from server
+                    $conn->close();
+                } catch (MongoConnectionException $e) {
+                    die('Error connecting to MongoDB server');
+                } catch (MongoException $e) {
+                    die('Error: ' . $e->getMessage());
+                }
                 $this->_helper->redirector('index');
             }
             //si los datos del formulario no son validos, es decir, falta ingresar
