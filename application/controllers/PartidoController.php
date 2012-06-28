@@ -134,7 +134,9 @@ class PartidoController extends Zend_Controller_Action
                     // retrieve existing document 
                     $criteria = array(
                         '_id' => new MongoId($_id),
+                       
                     );
+                    
                     $doc = $collection->findOne($criteria);
 
                     // update document with new values
