@@ -12,9 +12,7 @@ class JuezController extends Zend_Controller_Action {
         //obtengo listado de todas las filas de la tabla, y las
         //coloco en la variable datos de la pagina web (de la vista) 
         //que vamos a mostrar
-
-        $this->view->datos = $table;
-        
+        $this->view->datos = $table;        
     }
 
     public function crearAction() {
@@ -113,7 +111,6 @@ class JuezController extends Zend_Controller_Action {
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
                 $_id = $this->_getParam('_id', 0);
-                $codigo = $form->getValue('codigo');
                 $nombre = $form->getValue('nombre');
                 $documento = $form->getValue('documento');
                 $experiencia = $form->getValue('experiencia');
@@ -138,7 +135,6 @@ class JuezController extends Zend_Controller_Action {
 
                     // update document with new values
                     // save back to collection
-                    $doc['codigo'] = $codigo;
                     $doc['nombre'] = $nombre;
                     $doc['documento'] = $documento;
                     $doc['experiencia'] = $experiencia;
@@ -210,7 +206,8 @@ class JuezController extends Zend_Controller_Action {
         }
     }
 
-    public function eliminarAction() {
+    public function eliminarAction()
+    {
         // action body
         //debe venir un parametro, por GET o POST, llamado id, con el id del album a borrar
         $_id = $this->_getParam('_id', 0);
@@ -228,25 +225,15 @@ class JuezController extends Zend_Controller_Action {
                 // access collection
                 $collection = $db->juez;
 
-
-
                 $criteria = array(
                     '_id' => $_id,
                 );
                 $doc = $collection->findOne($criteria);
 
-
-
-
                 $criteria = array(
                     '_id' => new MongoId($_id),
                 );
                 $collection->remove($criteria);
-
-
-
-
-
                 $conn->close();
             } catch (MongoConnectionException $e) {
                 die('Error connecting to MongoDB server');
@@ -254,12 +241,11 @@ class JuezController extends Zend_Controller_Action {
                 die('Error: ' . $e->getMessage());
             }
 
-            //llamo a la funcion borrar
-     
+            //llamo a la funcion borrar     
             //redirijo a la accion index de este controlador, es decir,
             //al listado de albumes
             $this->_helper->redirector('index');
 //        }
-    }
 
+    }
 }

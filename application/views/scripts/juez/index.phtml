@@ -16,8 +16,7 @@
 <table class="articles" cellspacing="0" cellpadding="0">
     <thead>
         <tr>
-            <th>IdMongo</th>
-            <th>Codigo</th>
+            <th>Identificador</th>
             <th>Nombre</th>
             <th>Documento</th>
             <th>Experiencia</th>
@@ -31,7 +30,6 @@
             <!--           por cada fila, muestro sus datos -->
             <tr>
                 <td><?php echo $this->escape($d->_id); ?></td>
-                <td><?php echo $this->escape($d->codigo); ?></td>
                 <!--            nombre del album, con un enlace para editar el album-->
                 <td><a href="<?php echo $this->url(array('controller' => 'juez', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
                 <!--                id del artista-->

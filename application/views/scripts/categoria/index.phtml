@@ -1,4 +1,44 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Categoria</b> and script/action name <b>index</b></p>
-</div>
+<script type="text/javascript" charset="utf-8">
+    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar el la categoria?');
+        if(deleteArticle){
+            window.location.href = '<?php echo $this->url(array('controller' => 'categoria', 'action' => 'eliminar')); ?>'+'/_id/'+d;
+        }
+        return;
+    }
+</script>
+
+<!--para agregar un nuevo juez-->
+<a href="<?php echo $this->url(array('controller' => 'categoria',
+            'action' => 'crear')); ?>">Crear nueva Categoria</a>
+
+
+<!--creo una tabla para mostrar los datos-->
+<table class="articles" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th>Identificador</th>            
+            <th>Nombre</th>
+            <th>Valor Inscripcion</th>
+            <th>Torneo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--    recorro el arreglo de datos-->
+        <?php foreach ($this->datos as $d): ?>
+            <!--           por cada fila, muestro sus datos -->
+            <tr>
+                <td><?php echo $this->escape($d->_id); ?></td>
+                <!--            nombre del album, con un enlace para editar el album-->
+                <td><a href="<?php echo $this->url(array('controller' => 'categoria', 'action' => 'editar', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
+                <!--                id del artista-->
+                <td><?php echo $this->escape($d->valorinscripcion); ?></td>
+                <!--                        descripcion-->
+                <td><?php echo $this->escape($d->torneo); ?></td>
+                <!--                   enlace para borrar el album-->
+                    <td><a href="#" onclick="confirmDelete('<?php echo $d->_id; ?>')">Eliminar</a>
+                </td>
+            </tr>
+            <!--    fin del for-->
+        <?php endforeach; ?>
+    </tbody>
+</table>
