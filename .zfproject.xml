@@ -64,6 +64,12 @@
         <controllerFile controllerName="Cancha">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Pareja">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="crear"/>
+          <actionMethod actionName="modificar"/>
+          <actionMethod actionName="eliminar"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Torneoformulario"/>
@@ -77,6 +83,7 @@
         <formFile formName="Rondaformulario"/>
         <formFile formName="Grupo"/>
         <formFile formName="Grupoformulario"/>
+        <formFile formName="Parejaformulario"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -93,6 +100,7 @@
         <modelFile modelName="Rn"/>
         <modelFile modelName="Ranking"/>
         <modelFile modelName="Ronda"/>
+        <modelFile modelName="Pareja"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -204,6 +212,18 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Cancha">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Pareja">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Pareja">
+            <viewScriptFile forActionName="crear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Pareja">
+            <viewScriptFile forActionName="modificar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Pareja">
+            <viewScriptFile forActionName="eliminar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

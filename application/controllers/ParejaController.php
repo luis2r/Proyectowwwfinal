@@ -1,21 +1,24 @@
 <?php
 
-class CanchasController extends Zend_Controller_Action
+class ParejaController extends Zend_Controller_Action
 {
-    public function init() {
-        
+
+    public function init()
+    {
+        /* Initialize action controller here */
     }
 
-    public function indexAction() {
+    public function indexAction()
+    {
         // action body
     }
 
-    public function crearAction() 
+    public function crearAction()
     {
         //creo el formulario
-        $form = new Application_Form_Canchasformulario();
+        $form = new Application_Form_Parejaformulario();
         //cambio el texto del boton submit
-        $form->submit->setLabel('Agregar cancha');
+        $form->submit->setLabel('Agregar pareja');
         //lo asigno oa la accion (la pag web que se mostrara)
         $this->view->form = $form;
 
@@ -35,25 +38,19 @@ class CanchasController extends Zend_Controller_Action
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
                 $codigo = $form->getValue('codigo');
-                $ubicacion = $form->getValue('ubicacion');
-                $fecha = $form->getValue('fecha');
-                $hora = $form->getValue('hora');
-                $torneo = $form->getValue('torneo');
-                
+                $nombre = $form->getValue('nombre');
+                                
                 try {
                     // open connection to MongoDB server
                     $conn = new Mongo('localhost');
                     // access database
                     $db = $conn->proyecto;
                     // access collection
-                    $collection = $db->cancha;
+                    $collection = $db->pareja;
                     // insert a new document
                     $item = array(
                         'codigo' => $codigo,
-                        'ubicacion' => $ubicacion,
-                        'fecha' => $fecha,
-                        'hora' => $hora,
-                        'torneo' => $torneo                        
+                        'nombre' => $nombre                        
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -74,16 +71,24 @@ class CanchasController extends Zend_Controller_Action
                 $form->populate($formData);
             }
         }
-    }//fin action crear.....
+    }
 
-    public function modificarAction() {
+    public function modificarAction()
+    {
         // action body
     }
 
-    public function eliminarAction() {
+    public function eliminarAction()
+    {
         // action body
     }
 
 
 }
+
+
+
+
+
+
 

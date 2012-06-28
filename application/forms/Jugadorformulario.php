@@ -62,11 +62,15 @@ class Application_Form_Jugadorformulario extends Zend_Form
             $grupo->addMultiOption($c->_id,$c->nombre);
         }
         
-        //creamos <input text> para escribir pareja del jugador
-        $pareja = new Zend_Form_Element_Text('pareja');
-        $pareja->setLabel('Pareja:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
+        //creamos select para seleccionar torneo
+        $pareja = $this->createElement('select', 'pareja');
+        $pareja->setLabel("Pareja:")->setRequired(true);
+        $pareja->addMultiOption(11111,'Ninguna');
+        $datos = Application_Model_Pareja::all();
+        foreach($datos as $c)
+        {
+            $pareja->addMultiOption($c->_id,$c->nombre);
+        }
         
         //boton para enviar formulario
         $submit = new Zend_Form_Element_Submit('submit');
