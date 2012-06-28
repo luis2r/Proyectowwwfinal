@@ -8,6 +8,7 @@ class JuezController extends Zend_Controller_Action {
 
     public function indexAction() {
          //creo objeto que maneja la tabla album
+        
         $table = Application_Model_Juez::all();
         //obtengo listado de todas las filas de la tabla, y las
         //coloco en la variable datos de la pagina web (de la vista) 

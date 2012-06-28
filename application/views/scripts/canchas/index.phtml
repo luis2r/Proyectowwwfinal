@@ -1,37 +1,48 @@
-<!--creo una tabla para mostrar los datos-->
-<table>
-    <tr>
-        <th>Codigo</th>
-        <th>Ubicacion</th>
-        <th>Fecha</th>
-        <th>Hora</th>
-        <th>Torneo</th>
-    </tr>
-<!--    recorro el arreglo de datos-->
-    <?php foreach($this->datos as $d): ?>
-<!--           por cada fila, muestro sus datos -->
-        <tr>
-            <td><?php echo $this->escape($d->codigo); ?></td>
-<!--            nombre del album, con un enlace para editar el album-->
-            <td>
-            <a href="<?php echo $this->url(array('controller' => 'canchas',
-            'action' => 'update', 'id' => $d->_id)); ?>">
-                   <?php echo $d->ubicacion; ?>
-            </a>
-            </td>
-            <!--                id del artista-->
-            <td><?php echo $this->escape($d->fecha); ?></td>
-<!--                    fecha del album-->
-            <td><?php echo $this->escape($d->hora); ?></td>
-<!--                        descripcion-->
-            <td><?php echo $d->_id; ?></td>
-<!--                   enlace para borrar el album-->
-        <td>
+<script type="text/javascript" charset="utf-8">
+    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar la cancha?');
+        if(deleteArticle){
+            window.location.href = '<?php echo $this->url(array('controller' => 'canchas', 'action' => 'eliminar')); ?>'+'/_id/'+d;
+        }
+        return;
+    }
+</script>
 
-            <a href="<?php echo $this->url(array('controller' => 'canchas',
-                       'action' => 'delete', 'id' => $d->_id)); ?>">Delete</a>
-            </td>
+<!--para agregar un nuevo juez-->
+<a href="<?php echo $this->url(array('controller' => 'canchas',
+            'action' => 'crear')); ?>">Crear nuevo cancha</a>
+
+
+<!--creo una tabla para mostrar los datos-->
+<table class="articles" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th>Identificador</th>
+            <th>Ubicacion</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Torneo</th>
         </tr>
-<!--    fin del for-->
-    <?php endforeach; ?>
+    </thead>
+    <tbody>
+        <!--    recorro el arreglo de datos-->
+        <?php foreach ($this->datos as $d): ?>
+            <!--           por cada fila, muestro sus datos -->
+            <tr>
+                <td><?php echo $this->escape($d->_id); ?></td>
+                <!--            nombre del album, con un enlace para editar el album-->
+                <td><a href="<?php echo $this->url(array('controller' => 'canchas', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->ubicacion; ?></a></td>
+                <!--                id del artista-->
+                <td><?php echo $this->escape($d->fecha); ?></td>
+                <!--                    fecha del album-->
+                <td><?php echo $this->escape($d->hora); ?></td>
+                <!--                        descripcion-->
+                <td><?php echo $this->escape($d->torneo); ?></td>
+                <!--                   enlace para borrar el album-->
+                    <td><a href="#" onclick="confirmDelete('<?php echo $d->_id; ?>')">Eliminar</a>
+
+                </td>
+            </tr>
+            <!--    fin del for-->
+        <?php endforeach; ?>
+    </tbody>
 </table>
