@@ -21,8 +21,8 @@ class Application_Form_Juezformulario extends Zend_Form
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
 
         // creamos <input text> para escribir nombre de juez
-        $documentoidentidad = new Zend_Form_Element_Text('documentoidentidad');
-        $documentoidentidad->setLabel('Documento No:')->setRequired(true)->
+        $documento = new Zend_Form_Element_Text('documento');
+        $documento->setLabel('Documento No:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
         
         // creamos <input text> para escribir la experiencia
@@ -44,7 +44,7 @@ class Application_Form_Juezformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agregolos objetos creados al formulario
-        $this->addElements(array($codigo, $nombre, $documentoidentidad, $experiencia, $torneo, $submit));
+        $this->addElements(array($codigo, $nombre, $documento, $experiencia, $torneo, $submit));
         
         
         /* Form Elements & Other Definitions Here ... */

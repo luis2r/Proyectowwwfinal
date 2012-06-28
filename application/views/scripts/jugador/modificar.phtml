@@ -1,4 +1,9 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Jugador</b> and script/action name <b>modificar</b></p>
-</div>
+<script type="text/javascript" charset="utf-8">
+            function confirmDelete(articleId) {var deleteArticle = confirm('Are you sure you want to delete this article?');
+                if(deleteArticle){
+                    window.location.href = 'delete.php?id='+articleId;
+                }
+                return;
+            }
+        </script>
+        <?php echo $this->form; ?>

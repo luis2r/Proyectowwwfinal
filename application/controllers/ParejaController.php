@@ -1,20 +1,16 @@
 <?php
 
-class ParejaController extends Zend_Controller_Action
-{
+class ParejaController extends Zend_Controller_Action {
 
-    public function init()
-    {
+    public function init() {
         /* Initialize action controller here */
     }
 
-    public function indexAction()
-    {
+    public function indexAction() {
         // action body
     }
 
-    public function crearAction()
-    {
+    public function crearAction() {
         //creo el formulario
         $form = new Application_Form_Parejaformulario();
         //cambio el texto del boton submit
@@ -39,7 +35,7 @@ class ParejaController extends Zend_Controller_Action
 //                $jugadorCrear = new Application_Model_Jugador();
                 $codigo = $form->getValue('codigo');
                 $nombre = $form->getValue('nombre');
-                                
+
                 try {
                     // open connection to MongoDB server
                     $conn = new Mongo('localhost');
@@ -50,7 +46,7 @@ class ParejaController extends Zend_Controller_Action
                     // insert a new document
                     $item = array(
                         'codigo' => $codigo,
-                        'nombre' => $nombre                        
+                        'nombre' => $nombre
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -73,22 +69,13 @@ class ParejaController extends Zend_Controller_Action
         }
     }
 
-    public function modificarAction()
-    {
-        // action body
+    public function modificarAction() {
+        
     }
 
-    public function eliminarAction()
-    {
+    public function eliminarAction() {
         // action body
     }
-
 
 }
-
-
-
-
-
-
 
