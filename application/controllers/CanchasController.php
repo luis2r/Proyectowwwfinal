@@ -6,8 +6,15 @@ class CanchasController extends Zend_Controller_Action
         
     }
 
-    public function indexAction() {
-        // action body
+    public function indexAction()
+    {
+        //creo objeto que maneja la tabla album
+        $table = Application_Model_Torneo::all();
+        //obtengo listado de todas las filas de la tabla, y las
+        //coloco en la variable datos de la pagina web (de la vista) 
+        //que vamos a mostrar
+
+        $this->view->datos = $table;
     }
 
     public function crearAction() 
@@ -18,7 +25,7 @@ class CanchasController extends Zend_Controller_Action
         $form->submit->setLabel('Agregar cancha');
         //lo asigno oa la accion (la pag web que se mostrara)
         $this->view->form = $form;
-
+        
         //los formularios envian sus datos a traves de POST
         //si vienen datos de post, es que el usuario ha enviado el formulario
         if ($this->getRequest()->isPost()) {

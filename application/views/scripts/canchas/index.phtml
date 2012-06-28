@@ -1,4 +1,37 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Canchas</b> and script/action name <b>index</b></p>
-</div>
+<!--creo una tabla para mostrar los datos-->
+<table>
+    <tr>
+        <th>Codigo</th>
+        <th>Ubicacion</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Torneo</th>
+    </tr>
+<!--    recorro el arreglo de datos-->
+    <?php foreach($this->datos as $d): ?>
+<!--           por cada fila, muestro sus datos -->
+        <tr>
+            <td><?php echo $this->escape($d->codigo); ?></td>
+<!--            nombre del album, con un enlace para editar el album-->
+            <td>
+            <a href="<?php echo $this->url(array('controller' => 'canchas',
+            'action' => 'update', 'id' => $d->_id)); ?>">
+                   <?php echo $d->ubicacion; ?>
+            </a>
+            </td>
+            <!--                id del artista-->
+            <td><?php echo $this->escape($d->fecha); ?></td>
+<!--                    fecha del album-->
+            <td><?php echo $this->escape($d->hora); ?></td>
+<!--                        descripcion-->
+            <td><?php echo $d->_id; ?></td>
+<!--                   enlace para borrar el album-->
+        <td>
+
+            <a href="<?php echo $this->url(array('controller' => 'canchas',
+                       'action' => 'delete', 'id' => $d->_id)); ?>">Delete</a>
+            </td>
+        </tr>
+<!--    fin del for-->
+    <?php endforeach; ?>
+</table>

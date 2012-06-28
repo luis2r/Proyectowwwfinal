@@ -75,11 +75,6 @@ class JuezController extends Zend_Controller_Action
                 } catch (MongoException $e) {
                     die('Error: ' . $e->getMessage());
                 }
-
-
-
-
-
                 $this->_helper->redirector('index');
             }
             //si los datos del formulario no son validos, es decir, falta ingresar
