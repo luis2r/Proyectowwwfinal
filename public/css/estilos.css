@@ -15,9 +15,9 @@ h1{
     font-size: 120%;
 }
 
-table
+/*table
 {
-    /*para que los bordes que se junten se conviertan en uno solo*/
+    para que los bordes que se junten se conviertan en uno solo
     border-collapse:collapse;
 }
 table  th
@@ -43,7 +43,7 @@ table  tbody tr:hover
 {
     background-color: #FFD324;
 
-}
+}*/
 /*formualrios*/
 form label{
     font-family: sans-serif;
@@ -54,4 +54,19 @@ form label{
 ul.errors li{
     color: red;
     font-weight: bold;
+}
+
+table.articles {
+width: 100%;
+line-height: 1;
+text-align: left;
+}
+table.articles th{
+border-bottom: 1px solid #ccc;
+padding: 8px 0;
+font-weight: bold;
+}
+table.articles td {
+border-bottom: 1px solid #eee;
+padding: 6px 0;
 }

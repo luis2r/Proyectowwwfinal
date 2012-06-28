@@ -1,4 +1,52 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Juez</b> and script/action name <b>index</b></p>
-</div>
+<script type="text/javascript" charset="utf-8">
+    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar el juez?');
+        if(deleteArticle){
+            window.location.href = '<?php echo $this->url(array('controller' => 'juez', 'action' => 'eliminar')); ?>'+'/_id/'+d;
+        }
+        return;
+    }
+</script>
+
+<!--para agregar un nuevo juez-->
+<a href="<?php echo $this->url(array('controller' => 'juez',
+            'action' => 'crear')); ?>">Crear nuevo Juez</a>
+
+
+<!--creo una tabla para mostrar los datos-->
+<table class="articles" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <th>IdMongo</th>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Documento</th>
+            <th>Experiencia</th>
+            <th>Torneo</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--    recorro el arreglo de datos-->
+        <?php foreach ($this->datos as $d): ?>
+            <!--           por cada fila, muestro sus datos -->
+            <tr>
+                <td><?php echo $this->escape($d->_id); ?></td>
+                <td><?php echo $this->escape($d->codigo); ?></td>
+                <!--            nombre del album, con un enlace para editar el album-->
+                <td><a href="<?php echo $this->url(array('controller' => 'juez', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
+                <!--                id del artista-->
+                <td><?php echo $this->escape($d->documento); ?></td>
+                <!--                    fecha del album-->
+                <td><?php echo $this->escape($d->experiencia); ?></td>
+                <!--                        descripcion-->
+                <td><?php echo $this->escape($d->torneo); ?></td>
+                <!--                   enlace para borrar el album-->
+                    <td><a href="#" onclick="confirmDelete('<?php echo $d->_id; ?>')">Eliminar</a>
+
+
+                </td>
+            </tr>
+            <!--    fin del for-->
+        <?php endforeach; ?>
+    </tbody>
+</table>

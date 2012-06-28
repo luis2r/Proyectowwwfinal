@@ -7,6 +7,13 @@ class JuezController extends Zend_Controller_Action {
     }
 
     public function indexAction() {
+         //creo objeto que maneja la tabla album
+        $table = Application_Model_Juez::all();
+        //obtengo listado de todas las filas de la tabla, y las
+        //coloco en la variable datos de la pagina web (de la vista) 
+        //que vamos a mostrar
+
+        $this->view->datos = $table;
         
     }
 
@@ -107,6 +114,7 @@ class JuezController extends Zend_Controller_Action {
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
+                $_id = $this->_getParam('_id', 0);
                 $codigo = $form->getValue('codigo');
                 $nombre = $form->getValue('nombre');
                 $documento = $form->getValue('documento');
@@ -126,12 +134,13 @@ class JuezController extends Zend_Controller_Action {
                     // insert a new document
                     // retrieve existing document 
                     $criteria = array(
-                        'codigo' => $codigo,
+                        '_id' => new MongoId($_id),
                     );
                     $doc = $collection->findOne($criteria);
 
                     // update document with new values
                     // save back to collection
+                    $doc['codigo'] = $codigo;
                     $doc['nombre'] = $nombre;
                     $doc['documento'] = $documento;
                     $doc['experiencia'] = $experiencia;
@@ -139,7 +148,7 @@ class JuezController extends Zend_Controller_Action {
 
 
                     $collection->save($doc);
-                    echo 'Inserted document with ID: ' . $item['_id'];
+//                    echo 'Inserted document with ID: ' . $item['_id'];
 
                     // disconnect from server
                     $conn->close();
@@ -168,9 +177,9 @@ class JuezController extends Zend_Controller_Action {
             //si vienbe un parametro llamado id le asigno su valor a $id;
             //si no viene, le asigno cero
             //esto es como llamar a $_REQUEST
-            $codigo = $this->_getParam('codigo', 0);
+            $_id = $this->_getParam('_id', 0);
             //si viene algun id
-            if ($codigo != 0) {
+            if ($_id != 0) {
                 //CREO FORM
 
                 try {
@@ -184,7 +193,7 @@ class JuezController extends Zend_Controller_Action {
                     $collection = $db->juez;
 
                     $criteria = array(
-                        'codigo' => $codigo,
+                        '_id' => new MongoId($_id),
                     );
                     $doc = $collection->findOne($criteria);
                     $conn->close();
@@ -206,7 +215,7 @@ class JuezController extends Zend_Controller_Action {
     public function eliminarAction() {
         // action body
         //debe venir un parametro, por GET o POST, llamado id, con el id del album a borrar
-        $codigo = $this->_getParam('codigo', 0);
+        $_id = $this->_getParam('_id', 0);
         //si viene algun id
 //        if ($codigo != 0) {
             //CREO FORM
@@ -224,7 +233,7 @@ class JuezController extends Zend_Controller_Action {
 
 
                 $criteria = array(
-                    'codigo' => $codigo,
+                    '_id' => $_id,
                 );
                 $doc = $collection->findOne($criteria);
 
@@ -232,7 +241,7 @@ class JuezController extends Zend_Controller_Action {
 
 
                 $criteria = array(
-                    '_id' => new MongoId('4fec079c3f0ffce70c000000'),
+                    '_id' => new MongoId($_id),
                 );
                 $collection->remove($criteria);
 
