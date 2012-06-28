@@ -70,6 +70,12 @@
           <actionMethod actionName="modificar"/>
           <actionMethod actionName="eliminar"/>
         </controllerFile>
+        <controllerFile controllerName="Partido">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="crear"/>
+          <actionMethod actionName="modificar"/>
+          <actionMethod actionName="eliminar"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Torneoformulario"/>
@@ -84,6 +90,7 @@
         <formFile formName="Grupo"/>
         <formFile formName="Grupoformulario"/>
         <formFile formName="Parejaformulario"/>
+        <formFile formName="Partidoformulario"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -101,6 +108,7 @@
         <modelFile modelName="Ranking"/>
         <modelFile modelName="Ronda"/>
         <modelFile modelName="Pareja"/>
+        <modelFile modelName="Partido"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -223,6 +231,18 @@
             <viewScriptFile forActionName="modificar"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Pareja">
+            <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partido">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partido">
+            <viewScriptFile forActionName="crear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partido">
+            <viewScriptFile forActionName="modificar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partido">
             <viewScriptFile forActionName="eliminar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
