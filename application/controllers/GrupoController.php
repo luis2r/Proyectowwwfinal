@@ -37,7 +37,6 @@ class GrupoController extends Zend_Controller_Action
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
-                $codigo = $form->getValue('codigo');
                 $nombre = $form->getValue('nombre');
                 $numintegrantes = $form->getValue('numintregrantes');
                 $torneo = $form->getValue('torneo');
@@ -54,7 +53,6 @@ class GrupoController extends Zend_Controller_Action
                     $collection = $db->grupo;
                     // insert a new document
                     $item = array(
-                        'codigo' => $codigo,
                         'nombre' => $nombre,
                         'numintegrantes' => $numintegrantes,
                         'torneo' => $torneo,

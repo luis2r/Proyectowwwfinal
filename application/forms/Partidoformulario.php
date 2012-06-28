@@ -5,13 +5,7 @@ class Application_Form_Partidoformulario extends Zend_Form
 
     public function init()
     {
-        $this->setName('Partido');
-        
-        //creamos <input text> para escribir nombre album
-        $codigo = new Zend_Form_Element_Text('codigo');
-        $codigo->setLabel('Codigo:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');  
+        $this->setName('Partido'); 
         
         $jugadoruno = $this->createElement('select', 'jugadoruno');
         $jugadoruno->setLabel("Jugador uno:")->setRequired(true);
@@ -51,7 +45,7 @@ class Application_Form_Partidoformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($codigo,$jugadoruno,$jugadordos,$puntosjugadoruno,$puntosjugadordos,$torneo,$submit));
+        $this->addElements(array($jugadoruno,$jugadordos,$puntosjugadoruno,$puntosjugadordos,$torneo,$submit));
     }
 
 }

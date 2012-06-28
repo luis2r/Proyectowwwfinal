@@ -37,7 +37,6 @@ class RankingController extends Zend_Controller_Action
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
-                $codigo = $form->getValue('codigo');
                 $posicion = $form->getValue('posicion');
                 $jugador = $form->getValue('jugador');
                 $categoriajugador = $form->getValue('categoriajugador');
@@ -52,7 +51,6 @@ class RankingController extends Zend_Controller_Action
                     $collection = $db->ranking;
                     // insert a new document
                     $item = array(
-                        'codigo' => $codigo,
                         'posicion' => $posicion,
                         'jugador' => $jugador,
                         'categoriajugador' => $categoriajugador,                        

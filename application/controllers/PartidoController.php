@@ -37,7 +37,6 @@ class PartidoController extends Zend_Controller_Action
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
-                $codigo = $form->getValue('codigo');
                 $jugadoruno = $form->getValue('jugadoruno');
                 $jugadordos = $form->getValue('jugadordos');
                 $puntosjugadoruno = $form->getValue('puntosjugadoruno');
@@ -53,7 +52,6 @@ class PartidoController extends Zend_Controller_Action
                     $collection = $db->partido;
                     // insert a new document
                     $item = array(
-                        'codigo' => $codigo,
                         'jugadoruno' => $jugadoruno,
                         'jugadordos' => $jugadordos,
                         'puntosjugadoruno' => $puntosjugadoruno,

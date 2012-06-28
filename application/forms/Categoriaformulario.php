@@ -5,13 +5,7 @@ class Application_Form_Categoriaformulario extends Zend_Form
 
     public function init()
     {
-        $this->setName('Categoria');
-        
-        //creamos <input text> para escribir nombre album
-        $codigo = new Zend_Form_Element_Text('codigo');
-        $codigo->setLabel('Codigo:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');        
+        $this->setName('Categoria');       
         
         //creamos <input text> para escribir nombre del jugador
         $nombre = new Zend_Form_Element_Text('nombre');
@@ -39,7 +33,7 @@ class Application_Form_Categoriaformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($codigo,$nombre,$valorinscripcion,$torneo,$submit));
+        $this->addElements(array($nombre,$valorinscripcion,$torneo,$submit));
     }
 
 

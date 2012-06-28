@@ -41,7 +41,6 @@ class JuezController extends Zend_Controller_Action {
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
-                $codigo = $form->getValue('codigo');
                 $nombre = $form->getValue('nombre');
                 $documento = $form->getValue('documento');
                 $experiencia = $form->getValue('experiencia');
@@ -60,7 +59,6 @@ class JuezController extends Zend_Controller_Action {
 
                     // insert a new document
                     $item = array(
-                        'codigo' => $codigo,
                         'nombre' => $nombre,
                         'documento' => $documento,
                         'experiencia' => $experiencia,

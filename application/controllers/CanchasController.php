@@ -41,7 +41,6 @@ class CanchasController extends Zend_Controller_Action
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
-                $codigo = $form->getValue('codigo');
                 $ubicacion = $form->getValue('ubicacion');
                 $fecha = $form->getValue('fecha');
                 $hora = $form->getValue('hora');
@@ -55,8 +54,7 @@ class CanchasController extends Zend_Controller_Action
                     // access collection
                     $collection = $db->cancha;
                     // insert a new document
-                    $item = array(
-                        'codigo' => $codigo,
+                    $item = array(                        
                         'ubicacion' => $ubicacion,
                         'fecha' => $fecha,
                         'hora' => $hora,

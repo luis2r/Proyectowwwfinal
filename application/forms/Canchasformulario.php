@@ -6,16 +6,7 @@ class Application_Form_Canchasformulario extends Zend_Form
   public function init()
     {
       $this->setName('canchas');
-       
-       //campo hidden para guardar id de de juez
-//        $id = new Zend_Form_Element_Hidden('id');
-//        $id->addFilter('Int');
-        
-        $codigo = new Zend_Form_Element_Text('codigo');
-        $codigo->setLabel('Codigo:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
-//        creamos <input text> para escribir nombre de juez
-        
+               
         $ubicacion = new Zend_Form_Element_Text('ubicacion');
         $ubicacion->setLabel('Ubicacion:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
@@ -43,7 +34,7 @@ class Application_Form_Canchasformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
          //agregolos objetos creados al formulario
-        $this->addElements(array($codigo,$ubicacion,$fecha,$hora,$torneo,$submit));
+        $this->addElements(array($ubicacion,$fecha,$hora,$torneo,$submit));
         
     }
 

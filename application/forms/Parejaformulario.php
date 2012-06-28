@@ -4,13 +4,7 @@ class Application_Form_Parejaformulario extends Zend_Form
 {
     public function init()
     {
-        $this->setName('Pareja');
-        
-        //creamos <input text> para escribir nombre album
-        $codigo = new Zend_Form_Element_Text('codigo');
-        $codigo->setLabel('Codigo:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');        
+        $this->setName('Pareja'); 
         
         //creamos <input text> para escribir nombre del jugador
         $nombre = new Zend_Form_Element_Text('nombre');
@@ -23,7 +17,7 @@ class Application_Form_Parejaformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($codigo,$nombre,$submit));
+        $this->addElements(array($nombre,$submit));
     }
 }
 

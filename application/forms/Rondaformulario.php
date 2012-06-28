@@ -6,12 +6,6 @@ class Application_Form_Rondaformulario extends Zend_Form
     {
         $this->setName('Ronda');
         
-        //creamos <input text> para escribir nombre album
-        $codigo = new Zend_Form_Element_Text('codigo');
-        $codigo->setLabel('Codigo:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
-        
         //creamos <input text> para escribir nombre del jugador
         $nombre = new Zend_Form_Element_Text('nombre');
         $nombre->setLabel('Nombre:')->setRequired(true)->
@@ -41,7 +35,7 @@ class Application_Form_Rondaformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($codigo,$nombre,$torneo,$categoria,$submit));    
+        $this->addElements(array($nombre,$torneo,$categoria,$submit));    
     }
 }
 

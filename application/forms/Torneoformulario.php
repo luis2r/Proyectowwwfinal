@@ -8,12 +8,6 @@ class Application_Form_Torneoformulario extends Zend_Form
         /* Form Elements & Other Definitions Here ... */
         $this->setName('Torneo');
 
-        //creamos <input text> para escribir nombre album
-        $codigo = new Zend_Form_Element_Text('codigo');
-        $codigo->setLabel('Codigo:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
-
         $nombre = new Zend_Form_Element_Text('nombre');
         $nombre->setLabel('Nombre:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->
@@ -50,6 +44,6 @@ class Application_Form_Torneoformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agregolos objetos creados al formulario
-        $this->addElements(array($codigo,$nombre,$modalidad,$duracion,$fechainicio,$fechafin,$descripcion, $submit));
+        $this->addElements(array($nombre,$modalidad,$duracion,$fechainicio,$fechafin,$descripcion, $submit));
     }
 }
