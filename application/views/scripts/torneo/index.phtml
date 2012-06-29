@@ -1,5 +1,5 @@
 <script type="text/javascript" charset="utf-8">
-    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar el juez?');
+    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar el torneo?');
         if(deleteArticle){
             window.location.href = '<?php echo $this->url(array('controller' => 'torneo', 'action' => 'eliminar')); ?>'+'/_id/'+d;
         }
@@ -19,7 +19,7 @@
             <th>Identificador</th>
             <th>Nombre</th>
             <th>Modalidad</th>
-            <th>Duracion/th>
+            <th>Duracion</th>
             <th>Fecha Inicio</th>
             <th>Fecha Fin</th>
            <th>Descripcion</th>
@@ -40,7 +40,7 @@
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->fechainicio); ?></td>
                 <td><?php echo $this->escape($d->fechafin); ?></td>
-                 <td><?php echo $this->escape($d->descripcion); ?></td>      
+                <td><?php echo $this->escape($d->descripcion); ?></td>      
                 <!--                   enlace para borrar el album-->
                 <td><a href="#" onclick="confirmDelete('<?php echo $d->_id; ?>')">Eliminar</a></td>
             </tr>
