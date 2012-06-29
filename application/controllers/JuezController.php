@@ -242,7 +242,7 @@ class JuezController extends Zend_Controller_Action {
                 die('Error: ' . $e->getMessage());
             }
 
-            //llamo a la funcion borrar     
+            //llamo a // action body la funcion borrar     
             //redirijo a la accion index de este controlador, es decir,
             //al listado de albumes
             $this->_helper->redirector('index');

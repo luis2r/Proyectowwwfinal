@@ -120,7 +120,7 @@ class ParejaController extends Zend_Controller_Action {
                     // update document with new values
                     // save back to collection
                     $doc['nombre'] = $nombre;                    
-                    $doc['torneo'] = $torneo;
+//                    $doc['torneo'] = $torneo;
 
 
                     $collection->save($doc);
@@ -166,7 +166,7 @@ class ParejaController extends Zend_Controller_Action {
                     $db = $conn->proyecto;
 
                     // access collection
-                    $collection = $db->juez;
+                    $collection = $db->pareja;
 
                     $criteria = array(
                         '_id' => new MongoId($_id),

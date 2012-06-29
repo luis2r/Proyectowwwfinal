@@ -29,7 +29,7 @@
             <tr>
                 <td><?php echo $this->escape($d->_id); ?></td>
                 <!--            nombre del album, con un enlace para editar el album-->
-                <td><a href="<?php echo $this->url(array('controller' => 'pareja', 'action' => 'nombre', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
+                <td><a href="<?php echo $this->url(array('controller' => 'pareja', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
                 <!--                id del artista-->
                 <td><?php echo $this->escape($d->torneo); ?></td>
                 <!--                   enlace para borrar el album-->
