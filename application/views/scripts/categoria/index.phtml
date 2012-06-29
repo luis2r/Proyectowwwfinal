@@ -1,5 +1,5 @@
 <script type="text/javascript" charset="utf-8">
-    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar el la categoria?');
+    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar la categoria?');
         if(deleteArticle){
             window.location.href = '<?php echo $this->url(array('controller' => 'categoria', 'action' => 'eliminar')); ?>'+'/_id/'+d;
         }
