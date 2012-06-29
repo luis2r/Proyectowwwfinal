@@ -17,8 +17,8 @@
     <thead>
         <tr>
             <th>Identificador</th>
-            <th>jugador uno</th>
-            <th>jugador dos</th>
+            <th>Jugador uno</th>
+            <th>Jugador dos</th>
             <th>Puntos jugador uno</th>
             <th>Puntos jugador dos</th>
             <th>Torneo</th>
@@ -34,7 +34,7 @@
                 <!--            nombre del album, con un enlace para editar el album-->
                 <td><a href="<?php echo $this->url(array('controller' => 'partido', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->jugadoruno; ?></a></td>
                 <!--                id del artista-->
-                <td><?php echo $this->escape($d->jugadordos); ?></td>
+                <td><a href="<?php echo $this->url(array('controller' => 'partido', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->jugadordos; ?></a></td>
                 <!--                    fecha del album-->
                 <td><?php echo $this->escape($d->puntosjugadoruno); ?></td>
                 <td><?php echo $this->escape($d->puntosjugadordos); ?></td>

@@ -13,7 +13,6 @@ class CanchasController extends Zend_Controller_Action
         //obtengo listado de todas las filas de la tabla, y las
         //coloco en la variable datos de la pagina web (de la vista) 
         //que vamos a mostrar
-
         $this->view->datos = $table;
     }
 
@@ -81,7 +80,7 @@ class CanchasController extends Zend_Controller_Action
         }
     }//fin action crear.....
 
-    public function modificarAction() {
+    public function editarAction() {
        //creo el formulario
         $form = new Application_Form_Canchasformulario();
         //cambio el texto del boton submit
@@ -110,7 +109,6 @@ class CanchasController extends Zend_Controller_Action
                 $fecha = $form->getValue('fecha');
                 $hora = $form->getValue('hora');
                 $torneo = $form->getValue('torneo');
-
                 try {
                     // open connection to MongoDB server
                     $conn = new Mongo('localhost');
@@ -219,8 +217,6 @@ class CanchasController extends Zend_Controller_Action
 
                 // access collection
                 $collection = $db->cancha;
-
-
 
                 $criteria = array(
                     '_id' => $_id,

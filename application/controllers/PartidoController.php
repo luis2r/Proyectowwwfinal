@@ -63,7 +63,7 @@ class PartidoController extends Zend_Controller_Action
                         'jugadoruno' => $jugadoruno,
                         'jugadordos' => $jugadordos,
                         'puntosjugadoruno' => $puntosjugadoruno,
-                        'codigojugadordos' => $puntosjugadordos,
+                        'puntosjugadordos' => $puntosjugadordos,
                         'torneo' => $torneo,
                     );
                     $collection->insert($item);
