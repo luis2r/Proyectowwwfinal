@@ -13,7 +13,7 @@
 
 
 <!--creo una tabla para mostrar los datos-->
-<table class="articles" cellspacing="0" cellpadding="0">
+<table class="sortable">
     <thead>
         <tr>
             <th>Identificador</th>            
@@ -36,8 +36,8 @@
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->torneo); ?></td>
                 <!--                   enlace para borrar el album-->
-                    <td><a href="#" onclick="confirmDelete('<?php echo $d->_id; ?>')">Eliminar</a>
-                </td>
+                <td><a href=href="#" onclick="confirmDelete('<?php echo $d->_id; ?>')"><span class="icon gray" data-icon="7"></span></a> <a href="<?php // echo $this->url(array('controller' => 'categoria', 'action' => 'editar', '_id' => $d->_id)); ?>"><span class="icon gray" data-icon="m"></span></a></td>
+                
             </tr>
             <!--    fin del for-->
         <?php endforeach; ?>
