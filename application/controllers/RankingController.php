@@ -23,7 +23,7 @@ class RankingController extends Zend_Controller_Action
         $form = new Application_Form_Rankingformulario();
         //cambio el texto del boton submit
         $form->submit->setLabel('Agregar ranking');
-        //lo asigno oa la accion (la pag web que se mostrara)
+        //lo asigno a la accion (la pag web que se mostrara)
         $this->view->form = $form;
 
         //los formularios envian sus datos a traves de POST

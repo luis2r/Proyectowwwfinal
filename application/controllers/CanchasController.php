@@ -39,7 +39,7 @@ class CanchasController extends Zend_Controller_Action
             if ($form->isValid($formData)) {
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
-//                $jugadorCrear = new Application_Model_Jugador();
+//              $jugadorCrear = new Application_Model_Jugador();
                 $ubicacion = $form->getValue('ubicacion');
                 $fecha = $form->getValue('fecha');
                 $hora = $form->getValue('hora');
