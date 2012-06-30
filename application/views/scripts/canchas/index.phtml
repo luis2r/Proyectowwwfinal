@@ -8,8 +8,11 @@
 </script>
 
 <!--para agregar un nuevo juez-->
+<div class="col_6">
 <a href="<?php echo $this->url(array('controller' => 'canchas',
             'action' => 'crear')); ?>">Crear nueva Cancha</a>
+	<h4>Canchas</h4>
+
 
 
 <!--creo una tabla para mostrar los datos-->
@@ -39,11 +42,14 @@
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->torneo); ?></td>
                 <!--                   enlace para borrar el album-->
-                    <td><a href="#" onclick="confirmDelete('<?php echo $d->_id; ?>')">Eliminar</a>
-
+              
+                
+                <td><a href="<?php  echo $this->url(array('controller' => 'canchas', 'action' => 'editar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
+                    <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 
                 </td>
             </tr>
             <!--    fin del for-->
         <?php endforeach; ?>
     </tbody>
 </table>
+</div>

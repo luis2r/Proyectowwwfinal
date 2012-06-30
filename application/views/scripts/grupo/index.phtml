@@ -8,10 +8,10 @@
 </script>
 
 <!--para agregar un nuevo juez-->
+<div class="col_6">
 <a href="<?php echo $this->url(array('controller' => 'grupo',
             'action' => 'crear')); ?>">Crear nuevo Grupo</a>
-
-
+	<h4>Grupos</h4>
 <!--creo una tabla para mostrar los datos-->
 <table class="sortable">
     <thead>
@@ -42,12 +42,12 @@
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->cancha); ?></td>
                 <!--                   enlace para borrar el album-->
-                    <td><a href="#" onclick="confirmDelete('<?php echo $d->_id; ?>')">Eliminar</a>
-
-
+                <td><a href="<?php  echo $this->url(array('controller' => 'grupo', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
+                    <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 
                 </td>
             </tr>
             <!--    fin del for-->
         <?php endforeach; ?>
     </tbody>
 </table>
+</div>

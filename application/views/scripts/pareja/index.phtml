@@ -8,10 +8,10 @@
 </script>
 
 <!--para agregar un nuevo juez-->
+<div class="col_6">
 <a href="<?php echo $this->url(array('controller' => 'pareja',
-            'action' => 'crear')); ?>">Crear nueva pareja</a>
-
-
+            'action' => 'crear')); ?>">Crear nueva Pareja</a>
+	<h4>Parejas</h4>
 <!--creo una tabla para mostrar los datos-->
 <table class="sortable">
     <thead>
@@ -31,9 +31,9 @@
                 <!--            nombre del album, con un enlace para editar el album-->
                 <td><a href="<?php echo $this->url(array('controller' => 'pareja', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
                          <!--                   enlace para borrar el album-->
-                    <td><a href="#" onclick="confirmDelete('<?php echo $d->_id; ?>')">Eliminar</a>
-
-
+                
+                <td><a href="<?php  echo $this->url(array('controller' => 'pareja', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
+                    <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 
                 </td>
             </tr>
             <!--    fin del for-->

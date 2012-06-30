@@ -190,6 +190,44 @@ class ParejaController extends Zend_Controller_Action {
 
     public function eliminarAction() {
         // action body
+                // action body
+        //debe venir un parametro, por GET o POST, llamado id, con el id del album a borrar
+        $_id = $this->_getParam('_id', 0);
+        //si viene algun id
+//        if ($codigo != 0) {
+            //CREO FORM
+
+            try {
+                // open connection to MongoDB server
+                $conn = new Mongo('localhost');
+
+                // access database
+                $db = $conn->proyecto;
+
+                // access collection
+                $collection = $db->pareja;
+
+                $criteria = array(
+                    '_id' => $_id,
+                );
+                $doc = $collection->findOne($criteria);
+
+                $criteria = array(
+                    '_id' => new MongoId($_id),
+                );
+                $collection->remove($criteria);
+                $conn->close();
+            } catch (MongoConnectionException $e) {
+                die('Error connecting to MongoDB server');
+            } catch (MongoException $e) {
+                die('Error: ' . $e->getMessage());
+            }
+
+            //llamo a la funcion borrar     
+            //redirijo a la accion index de este controlador, es decir,
+            //al listado de albumes
+            $this->_helper->redirector('index');
+//        }
     }
 
 }
