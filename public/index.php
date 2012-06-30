@@ -35,5 +35,11 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
+$view = new Zend_View();
+    $view->addHelperPath('ZendX/JQuery/View/Helper/', 'ZendX_JQuery_View_Helper');
+     
+    $viewRenderer = new Zend_Controller_Action_Helper_ViewRenderer();
+    $viewRenderer->setView($view);
+    Zend_Controller_Action_HelperBroker::addHelper($viewRenderer);
 $application->bootstrap()
             ->run();

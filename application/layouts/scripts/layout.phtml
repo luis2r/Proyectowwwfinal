@@ -5,9 +5,31 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!--        referencia al archivo css, uso $this->baseUrl para tener una referencia segun
         el lugar dede donde se llame al layout-->
+
+                <script type="text/javascript" src="/zendwww/public/js/prettify.js"></script>                                   <!-- PRETTIFY -->
+<script type="text/javascript" src="/zendwww/public/js/kickstart.js"></script>                                  <!-- KICKSTART -->
+<link rel="stylesheet" type="text/css" href="/zendwww/public/css/kickstart.css" media="all" />                  <!-- KICKSTART -->
+<link rel="stylesheet" type="text/css" href="/zendwww/public/style.css" media="all" />
+
+
+
         <link href="<?php echo $this->baseUrl; ?>/zendwww/public/css/estilos.css" type="text/css" rel="stylesheet">
           <script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/javascript/jquery/jquery-1.4.2.min.js"></script>
-
+<?php echo $this->HeadMeta(); ?>
+      
+                  
+          
+        <?php
+        $this->headLink()
+                ->prependStylesheet('css/estilos.css')
+                ->appendStylesheet('css/smoothness/jquery-ui-1.8.2.custom.css');
+        ?>
+        <?php echo $this->headLink(); ?>
+        <?php
+        echo $this->jQuery()
+                ->setVersion('1.4.2')
+                ->setUiVersion('1.8.2');
+        ?>
     </head>
     <body>
         <div class="banner">
@@ -16,7 +38,17 @@
         </div>
         <h1><?php echo $this->title; ?></h1>
 
-        <h3>Este es el contenido de la vista:</h3>
+        <div class="header">
+<!--		<h1>
+			Introduction to Zend_Navigation
+		</h1>-->
+		<div class="topnav">
+			<?= $this->navigation()->menu(); ?>
+		</div>
+		<div class="breadcrumbs">
+			<?= $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" : "); ?>
+		</div>
+	</div>
         <div class="contenido">
 <!--            muestro el contenido segun la vista-->
             <?php echo $this->layout()->content; ?>

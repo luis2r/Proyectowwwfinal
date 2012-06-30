@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+    <nav>
+        <home>
+            <label>Home</label>
+            <controller>index</controller>   
+            <action>index</action> 
+        </home>		
+            
+                        
+        <canchas>
+            <label>Canchas</label>
+            <controller>canchas</controller>   
+            <action>index</action>                   
+        </canchas>
+                        
+        <categoria>
+            <label>Categorias</label>
+            <controller>categoria</controller>   
+            <action>index</action>     	
+        </categoria>
+                        
+        <grupo>
+            <label>Grupos</label>
+            <controller>grupo</controller>   
+            <action>index</action>     	
+        </grupo>
+                        
+                        
+        <juez>
+            <label>Jueces</label>
+            <controller>juez</controller>   
+            <action>index</action>    	
+        </juez>
+                        
+        <jugador>
+            <label>Jugadores</label>
+            <controller>jugador</controller>   
+            <action>index</action>    	
+        </jugador>
+                        
+        <pareja>
+            <label>Parejas</label>
+            <controller>pareja</controller>   
+            <action>index</action>    	
+        </pareja>
+                        
+        <partido>
+            <label>Partido</label>
+            <controller>partido</controller>   
+            <action>index</action>     	
+        </partido>
+                        
+        <ranking>
+            <label>Ranking</label>
+            <controller>ranking</controller>   
+            <action>index</action>    	
+        </ranking>
+		    	
+        <ronda>
+            <label>Rondas</label>
+            <controller>ronda</controller>   
+            <action>index</action>     	
+        </ronda>
+                        
+                 
+		    	
+        <torneo>
+            <label>Torneos</label>
+            <uri>torneo</uri>    	
+        </torneo>
+    </nav>
+</configdata>

@@ -8,9 +8,6 @@
         <applicationConfigFile type="ini"/>
       </configsDirectory>
       <controllersDirectory>
-        <controllerFile controllerName="Index">
-          <actionMethod actionName="index"/>
-        </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Torneo">
           <actionMethod actionName="index"/>
@@ -109,6 +106,7 @@
         <modelFile modelName="Ronda"/>
         <modelFile modelName="Pareja"/>
         <modelFile modelName="Partido"/>
+        <modelFile modelName="City"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>

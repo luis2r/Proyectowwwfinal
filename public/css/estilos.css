@@ -45,28 +45,65 @@ table  tbody tr:hover
 
 }*/
 /*formualrios*/
-form label{
+/*form label{
     font-family: sans-serif;
     color: darkorange;
     font-weight: bold;
 }
-/*clase de la lista de errores de los formularios*/
+clase de la lista de errores de los formularios
 ul.errors li{
     color: red;
     font-weight: bold;
 }
 
 table.articles {
-width: 100%;
-line-height: 1;
-text-align: left;
+    width: 100%;
+    line-height: 1;
+    text-align: left;
 }
 table.articles th{
-border-bottom: 1px solid #ccc;
-padding: 8px 0;
-font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    font-weight: bold;
 }
 table.articles td {
-border-bottom: 1px solid #eee;
-padding: 6px 0;
+    border-bottom: 1px solid #eee;
+    padding: 6px 0;
 }
+
+.header
+{
+    background: #FFF;
+}
+.breadcrumbs
+{
+    background:#EFEFEF;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+.content 
+{
+    margin: 5px;
+}
+.topnav
+{
+    padding: 5px ;
+}
+
+.topnav ul , .topnav ul li
+{
+    display: inline;
+}		
+.topnav ul li a
+{
+    color: #00E;
+    text-decoration: none;
+    border-width: 1px 1px 0px 1px;
+    border-color: #000;
+    border-style: solid;
+    padding: 5px;
+}
+.topnav ul li a:hover
+{
+    background: #CCC;
+}*/
