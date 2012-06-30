@@ -19,7 +19,9 @@ class GrupoController extends Zend_Controller_Action
     }
 
     public function crearAction()
-    {
+    {$this->view->title = "Crear Grupo";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Grupoformulario();
         //cambio el texto del boton submit
@@ -86,7 +88,9 @@ class GrupoController extends Zend_Controller_Action
     }
 
     public function modificarAction()
-    {
+    {$this->view->title = "Editar Grupo";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Grupoformulario();
         //cambio el texto del boton submit

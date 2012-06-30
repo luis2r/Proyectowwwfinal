@@ -17,6 +17,9 @@ class JugadorController extends Zend_Controller_Action
 
     public function crearAction() 
     {
+        $this->view->title = "Crear jugador";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Jugadorformulario();
         //cambio el texto del boton submit
@@ -89,6 +92,9 @@ class JugadorController extends Zend_Controller_Action
     }//fin action crear.....
 
     public function modificarAction() {
+        $this->view->title = "Editar Jugador";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Jugadorformulario();
         //cambio el texto del boton submit

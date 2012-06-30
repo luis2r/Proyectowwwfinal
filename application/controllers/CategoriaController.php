@@ -19,7 +19,9 @@ class CategoriaController extends Zend_Controller_Action
     }
 
     public function crearAction()
-    {
+    {$this->view->title = "Crear categoria";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Categoriaformulario();
         //cambio el texto del boton submit
@@ -80,7 +82,9 @@ class CategoriaController extends Zend_Controller_Action
     }
 
     public function editarAction()
-    {
+    {$this->view->title = "Editar Categoria";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Categoriaformulario();
         //cambio el texto del boton submit

@@ -23,6 +23,9 @@ class PartidoController extends Zend_Controller_Action
 
     public function crearAction()
     {
+        $this->view->title = "Crear Partido";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Partidoformulario();
         //cambio el texto del boton submit
@@ -90,6 +93,9 @@ class PartidoController extends Zend_Controller_Action
 
     public function modificarAction()
     {
+        $this->view->title = "Editar Partido";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
   //creo el formulario
         $form = new Application_Form_Partidoformulario();
         //cambio el texto del boton submit

@@ -20,6 +20,9 @@ class RondaController extends Zend_Controller_Action
 
     public function crearAction()
     {
+        $this->view->title = "Crear Ronda";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Rondaformulario();
         //cambio el texto del boton submit
@@ -82,7 +85,9 @@ class RondaController extends Zend_Controller_Action
     }
 
     public function editarAction()
-    {
+    {$this->view->title = "Editar Ronda";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Rondaformulario();
         //cambio el texto del boton submit

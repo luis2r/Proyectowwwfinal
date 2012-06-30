@@ -17,6 +17,9 @@ class JuezController extends Zend_Controller_Action {
     }
 
     public function crearAction() {
+        $this->view->title = "Crear Juez";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Juezformulario();
         //cambio el texto del boton submit
@@ -88,6 +91,9 @@ class JuezController extends Zend_Controller_Action {
     }
 
     public function modificarAction() {
+        $this->view->title = "Editar juez";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Juezformulario();
         //cambio el texto del boton submit

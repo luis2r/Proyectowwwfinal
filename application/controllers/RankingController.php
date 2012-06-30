@@ -18,7 +18,9 @@ class RankingController extends Zend_Controller_Action
     }
 
     public function crearAction()
-    {
+    {$this->view->title = "Crear Ranking";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Rankingformulario();
         //cambio el texto del boton submit
@@ -81,7 +83,9 @@ class RankingController extends Zend_Controller_Action
     }
 
     public function editarAction()
-    {
+    {$this->view->title = "Editar Ranking";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Rankingformulario();
         //cambio el texto del boton submit

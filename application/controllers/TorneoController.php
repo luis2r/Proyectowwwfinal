@@ -17,6 +17,9 @@ class TorneoController extends Zend_Controller_Action {
     }
 
     public function crearAction() {
+        $this->view->title = "Crear Torneo";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Torneoformulario();
         //cambio el texto del boton submit
@@ -85,6 +88,9 @@ class TorneoController extends Zend_Controller_Action {
     }
 
     public function modificarAction() {
+        $this->view->title = "Editar Torneo";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Torneoformulario();
         //cambio el texto del boton submit

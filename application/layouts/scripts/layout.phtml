@@ -3,22 +3,22 @@
     <head>
         <title><?php echo $this->title; ?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!--        referencia al archivo css, uso $this->baseUrl para tener una referencia segun
-        el lugar dede donde se llame al layout-->
+        <!--        referencia al archivo css, uso $this->baseUrl para tener una referencia segun
+                el lugar dede donde se llame al layout-->
 
-                <script type="text/javascript" src="/zendwww/public/js/prettify.js"></script>                                   <!-- PRETTIFY -->
-<script type="text/javascript" src="/zendwww/public/js/kickstart.js"></script>                                  <!-- KICKSTART -->
-<link rel="stylesheet" type="text/css" href="/zendwww/public/css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-<link rel="stylesheet" type="text/css" href="/zendwww/public/style.css" media="all" />
+        <script type="text/javascript" src="/zendwww/public/js/prettify.js"></script>                                   <!-- PRETTIFY -->
+        <script type="text/javascript" src="/zendwww/public/js/kickstart.js"></script>                                  <!-- KICKSTART -->
+        <link rel="stylesheet" type="text/css" href="/zendwww/public/css/kickstart.css" media="all" />                  <!-- KICKSTART -->
+        <link rel="stylesheet" type="text/css" href="/zendwww/public/style.css" media="all" />
 
 
 
         <link href="<?php echo $this->baseUrl; ?>/zendwww/public/css/estilos.css" type="text/css" rel="stylesheet">
-          <script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/javascript/jquery/jquery-1.4.2.min.js"></script>
-<?php echo $this->HeadMeta(); ?>
-      
-                  
-          
+        <script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/javascript/jquery/jquery-1.4.2.min.js"></script>
+        <?php echo $this->HeadMeta(); ?>
+
+
+
         <?php
         $this->headLink()
                 ->prependStylesheet('css/estilos.css')
@@ -32,26 +32,41 @@
         ?>
     </head>
     <body>
-        <div class="banner">
-<!--           imagen, tambien uso $this->baseUrl para referenciarla-->
-            <img src="<?php echo $this->baseUrl; ?>/zendwww/public/images/header.jpg" width="1200" height="150" alt="header"/>
-        </div>
-        <h1><?php echo $this->title; ?></h1>
+        <div id="wrap" class="clearfix">
+            <div class="banner">
+                <!--           imagen, tambien uso $this->baseUrl para referenciarla-->
+                <img src="<?php echo $this->baseUrl; ?>/zendwww/public/images/header.jpg" width="1200" height="150" alt="header"/>
+            </div>
 
-        <div class="header">
-<!--		<h1>
-			Introduction to Zend_Navigation
-		</h1>-->
-		<div class="topnav">
-			<?= $this->navigation()->menu(); ?>
-		</div>
-		<div class="breadcrumbs">
-			<?= $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" : "); ?>
-		</div>
-	</div>
-        <div class="contenido">
-<!--            muestro el contenido segun la vista-->
-            <?php echo $this->layout()->content; ?>
+
+            <div class="header">
+                <!--		<h1>
+                                        Introduction to Zend_Navigation
+                                </h1>-->
+                <div class="topnav">
+                    <?= $this->navigation()->menu(); ?>
+                </div>
+                <div class="breadcrumbs">
+                    <?= $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" : "); ?>
+                </div>
+            </div>
+            <h1><?php echo $this->title; ?></h1>
+
+            <div class="contenido">
+                <!--            muestro el contenido segun la vista-->
+                <?php echo $this->layout()->content; ?>
+            </div>
+            <div class="clear"></div>
+            <div id="footer">
+                <!-- Like Button -->
+                <span  class='st_twitter' ></span><span  class='st_facebook' ></span><span  class='st_email' ></span>
+                <script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'12e9746a-f335-4d62-9251-7a14b829361b'});</script>&nbsp;
+                <!-- End Like Button -->
+
+                &copy; Copyright 2012 All Rights Reserved. This website was built with <a href="http://framework.zend.com/">Zend Framework</a> | <a href="http://jquery.com/>jQuery">jQuery</a> |  <a href="http://www.99lime.com">HTML KickStart</a> | 
+                <a href="/rss/">RSS</a> | By <strong>Franco Cundar - Herney Palacios - Luis Rosero</strong> | <a href="mailto:luis2r@gmail.com">Contactanos</a>
+                <a id="link-top" href="#top-of-page">Top</a>
+            </div>
         </div>
     </body>
 </html>

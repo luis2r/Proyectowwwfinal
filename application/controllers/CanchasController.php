@@ -18,6 +18,9 @@ class CanchasController extends Zend_Controller_Action
 
     public function crearAction() 
     {
+        $this->view->title = "Crear cancha";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Canchasformulario();
         //cambio el texto del boton submit
@@ -81,6 +84,9 @@ class CanchasController extends Zend_Controller_Action
     }//fin action crear.....
 
     public function editarAction() {
+        $this->view->title = "Editar Cancha";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
        //creo el formulario
         $form = new Application_Form_Canchasformulario();
         //cambio el texto del boton submit

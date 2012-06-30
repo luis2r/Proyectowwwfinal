@@ -16,6 +16,9 @@ class ParejaController extends Zend_Controller_Action {
     }
 
     public function crearAction() {
+        $this->view->title = "Crear Pareja";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
         //creo el formulario
         $form = new Application_Form_Parejaformulario();
         //cambio el texto del boton submit
@@ -73,6 +76,9 @@ class ParejaController extends Zend_Controller_Action {
     }
 
     public function modificarAction() {
+        $this->view->title = "Editar Pareja";
+        //valor para <head><title>
+        $this->view->headTitle($this->view->title);
          //creo el formulario
         $form = new Application_Form_Parejaformulario();
         //cambio el texto del boton submit
