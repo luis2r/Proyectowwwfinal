@@ -43,8 +43,13 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $datos = Application_Model_Categoria::all();
         foreach($datos as $c)
         {
-            $categoria->addMultiOption($c->_id,$c->nombre);
+            $categoria->addMultiOption($c->_id,$c->nombre." - Valor: ".$c->valorinscripcion);
         }
+        
+        //creamos <input text> para escribir nombre del jugador
+        $ranking = new Zend_Form_Element_Text('ranking');
+        $ranking->setLabel('Ranking:')->setRequired(true)->
+                addFilter('StripTags')->addFilter('StringTrim');
         
         //creamos select para seleccionar torneo
         $grupo = $this->createElement('select', 'grupo');
@@ -71,7 +76,7 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($nombre,$documento,$modalidad,$torneo,$tipo,$categoria,$grupo,$pareja,$submit));
+        $this->addElements(array($nombre,$documento,$modalidad,$torneo,$tipo,$categoria,$ranking,$grupo,$pareja,$submit));
     }
 }
 

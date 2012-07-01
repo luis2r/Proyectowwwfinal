@@ -48,6 +48,7 @@ class JugadorController extends Zend_Controller_Action
                 $torneo = $form->getValue('torneo');
                 $tipo = $form->getValue('tipo');
                 $categoria = $form->getValue('categoria');
+                $ranking = $form->getValue('ranking');
                 $grupo = $form->getValue('grupo');
                 $pareja = $form->getValue('pareja');
 //                $status = $jugadorCrear->save();
@@ -67,6 +68,7 @@ class JugadorController extends Zend_Controller_Action
                         'torneo' => $torneo,
                         'tipo' => $tipo,
                         'categoria' => $categoria,
+                        'ranking' => $ranking,
                         'grupo' => $grupo,
                         'pareja' => $pareja
                     );
@@ -125,6 +127,7 @@ class JugadorController extends Zend_Controller_Action
                 $torneo = $form->getValue('torneo');
                 $tipo = $form->getValue('tipo');
                 $categoria = $form->getValue('categoria');
+                $ranking = $form->getValue('ranking');
                 $grupo = $form->getValue('grupo');
                 $pareja = $form->getValue('pareja');
 
@@ -153,6 +156,7 @@ class JugadorController extends Zend_Controller_Action
                     $doc['torneo'] = $torneo;
                     $doc['tipo'] = $tipo;
                     $doc['categoria'] = $categoria;
+                    $doc['ranking'] = $ranking;
                     $doc['grupo'] = $grupo;
                     $doc['pareja'] = $pareja;
 
