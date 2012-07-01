@@ -72,6 +72,14 @@
           <actionMethod actionName="crear"/>
           <actionMethod actionName="modificar"/>
           <actionMethod actionName="eliminar"/>
+          <actionMethod actionName="mostrar"/>
+        </controllerFile>
+        <controllerFile controllerName="Partidofinal">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="crear"/>
+          <actionMethod actionName="modificar"/>
+          <actionMethod actionName="eliminar"/>
+          <actionMethod actionName="mostrar"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -88,6 +96,8 @@
         <formFile formName="Grupoformulario"/>
         <formFile formName="Parejaformulario"/>
         <formFile formName="Partidoformulario"/>
+        <formFile formName="Partidofinal"/>
+        <formFile formName="Partidofinalformulario"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -107,6 +117,7 @@
         <modelFile modelName="Pareja"/>
         <modelFile modelName="Partido"/>
         <modelFile modelName="City"/>
+        <modelFile modelName="Partidofinal"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -242,6 +253,24 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Partido">
             <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partidofinal">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partidofinal">
+            <viewScriptFile forActionName="crear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partidofinal">
+            <viewScriptFile forActionName="modificar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partidofinal">
+            <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partido">
+            <viewScriptFile forActionName="mostrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partidofinal">
+            <viewScriptFile forActionName="mostrar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

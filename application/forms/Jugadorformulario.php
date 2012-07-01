@@ -48,7 +48,7 @@ class Application_Form_Jugadorformulario extends Zend_Form
         
         //creamos <input text> para escribir nombre del jugador
         $ranking = new Zend_Form_Element_Text('ranking');
-        $ranking->setLabel('Ranking:')->setRequired(true)->
+        $ranking->setLabel('Ranking (Posición):')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim');
         
         //creamos select para seleccionar torneo

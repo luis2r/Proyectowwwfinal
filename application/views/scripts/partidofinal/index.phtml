@@ -1,7 +1,7 @@
 <script type="text/javascript" charset="utf-8">
-    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar el partido?');
+    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar el partido final?');
         if(deleteArticle){
-            window.location.href = '<?php echo $this->url(array('controller' => 'partido', 'action' => 'eliminar')); ?>'+'/_id/'+d;
+            window.location.href = '<?php echo $this->url(array('controller' => 'partidofinal', 'action' => 'eliminar')); ?>'+'/_id/'+d;
         }
         return;
     }
@@ -9,9 +9,9 @@
 
 <!--para agregar un nuevo juez-->
 <div class="col_6">
-<a href="<?php echo $this->url(array('controller' => 'partido',
-            'action' => 'crear')); ?>">Crear nuevo Partido</a>
-	<h4>Partido</h4>
+<a href="<?php echo $this->url(array('controller' => 'partidofinal',
+            'action' => 'crear')); ?>">Crear nuevo Partido Final</a>
+	<h4>Partido Final</h4>
 <!--creo una tabla para mostrar los datos-->
 <table class="sortable">
     <thead>
@@ -29,16 +29,16 @@
         <?php foreach ($this->datos as $d): ?>
             <!--           por cada fila, muestro sus datos -->
             <tr>                
-                <td><a href="<?php echo $this->url(array('controller' => 'partido', 'action' => 'mostrar', '_id' => $d->_id)); ?>"><?php echo $d->_id; ?></a></td>
+                <td><a href="<?php echo $this->url(array('controller' => 'partidofinal', 'action' => 'mostrar', '_id' => $d->_id)); ?>"><?php echo $d->_id; ?></a></td>
                 <!--            nombre del album, con un enlace para editar el album-->
                 <td><?php echo $this->escape($d->jugadoruno); ?></td>                                              
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->jugadordos); ?></td>
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->juez); ?></td>
-                <td><?php echo $this->escape($d->torneo); ?></td>    
+                <td><?php echo $this->escape($d->torneo); ?></td>   
                 <!--                   enlace para borrar el album-->
-                <td><a href="<?php  echo $this->url(array('controller' => 'partido', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
+                <td><a href="<?php  echo $this->url(array('controller' => 'partidofinal', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
                     <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 
                 </td>
             </tr>
