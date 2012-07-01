@@ -1,3 +1,13 @@
+
+
+<script type="text/javascript">
+    setTimeout ("redireccionar()", 10000);
+    function redireccionar(){
+        window.location="<?php echo $this->url(array('controller' => 'partido',
+    'action' => 'mostrar'));
+?>";
+                       } 
+</script>
 <div class="col_6">
 <a>Puntos del Partido</a><br><br>
 <!--creo una tabla para mostrar los datos-->

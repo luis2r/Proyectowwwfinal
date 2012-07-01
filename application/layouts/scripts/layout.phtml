@@ -10,20 +10,19 @@
         <script type="text/javascript" src="/zendwww/public/js/kickstart.js"></script>                                  <!-- KICKSTART -->
         <link rel="stylesheet" type="text/css" href="/zendwww/public/css/kickstart.css" media="all" />                  <!-- KICKSTART -->
         <link rel="stylesheet" type="text/css" href="/zendwww/public/style.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="/zendwww/public/css/estilos.css" media="all" />
 
 
 
         <link href="<?php echo $this->baseUrl; ?>/zendwww/public/css/estilos.css" type="text/css" rel="stylesheet">
         <script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/javascript/jquery/jquery-1.4.2.min.js"></script>
+        <link href="<?php echo $this->baseUrl; ?>/zendwww/public/css/smoothness/jquery-ui-1.8.2.custom.css" type="text/css" rel="stylesheet">
+
         <?php echo $this->HeadMeta(); ?>
 
 
 
-        <?php
-        $this->headLink()
-                ->prependStylesheet('css/estilos.css')
-                ->appendStylesheet('css/smoothness/jquery-ui-1.8.2.custom.css');
-        ?>
+    
         <?php echo $this->headLink(); ?>
         <?php
         echo $this->jQuery()
