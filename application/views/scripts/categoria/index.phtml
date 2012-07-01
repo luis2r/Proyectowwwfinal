@@ -19,8 +19,7 @@
         <tr>
             <th>Identificador</th>            
             <th>Nombre</th>
-            <th>Valor Inscripcion</th>
-            <th>Torneo</th>
+            <th>Valor Inscripcion</th>           
             <th>Acción</th>
         </tr>
     </thead>
@@ -33,9 +32,7 @@
                 <!--            nombre del album, con un enlace para editar el album-->
                 <td><a href="<?php echo $this->url(array('controller' => 'categoria', 'action' => 'editar', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
                 <!--                id del artista-->
-                <td><?php echo $this->escape($d->valorinscripcion); ?></td>
-                <!--                        descripcion-->
-                <td><?php echo $this->escape($d->torneo); ?></td>
+                <td><?php echo $this->escape($d->valorinscripcion); ?></td>                
                 <!--                   enlace para borrar el album-->
                 <td><a href="<?php  echo $this->url(array('controller' => 'categoria', 'action' => 'editar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
                     <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 

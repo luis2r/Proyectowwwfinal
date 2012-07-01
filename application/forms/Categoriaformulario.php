@@ -18,22 +18,13 @@ class Application_Form_Categoriaformulario extends Zend_Form
         $valorinscripcion->setLabel('Valor de la Inscripcion:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
-                        
-        //creamos select para seleccionar torneo
-        $torneo = $this->createElement('select', 'torneo');
-        $torneo->setLabel("Torneo:")->setRequired(true);
-        $datos = Application_Model_Torneo::all();
-        foreach($datos as $c)
-        {
-            $torneo->addMultiOption($c->_id,$c->nombre);
-        }
                 
         //boton para enviar formulario
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($nombre,$valorinscripcion,$torneo,$submit));
+        $this->addElements(array($nombre,$valorinscripcion,$submit));
     }
 
 

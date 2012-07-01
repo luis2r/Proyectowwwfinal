@@ -45,8 +45,7 @@ class CategoriaController extends Zend_Controller_Action
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
                 $nombre = $form->getValue('nombre');
-                $valorinscripcion = $form->getValue('valorinscripcion');
-                $torneo = $form->getValue('torneo');
+                $valorinscripcion = $form->getValue('valorinscripcion');                
                 try {
                     // open connection to MongoDB server
                     $conn = new Mongo('localhost');
@@ -57,8 +56,7 @@ class CategoriaController extends Zend_Controller_Action
                     // insert a new document
                     $item = array(
                         'nombre' => $nombre,
-                        'valorinscripcion' => $valorinscripcion,
-                        'torneo' => $torneo,                        
+                        'valorinscripcion' => $valorinscripcion,                                             
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -110,8 +108,7 @@ class CategoriaController extends Zend_Controller_Action
 //                $jugadorCrear = new Application_Model_Jugador();
                 $_id = $this->_getParam('_id', 0);
                 $nombre = $form->getValue('nombre');
-                $valorinscripcion = $form->getValue('valorinscripcion');
-                $torneo = $form->getValue('torneo');
+                $valorinscripcion = $form->getValue('valorinscripcion');                
 
                 try {
                     // open connection to MongoDB server
@@ -134,7 +131,6 @@ class CategoriaController extends Zend_Controller_Action
                     // save back to collection
                     $doc['nombre'] = $nombre;
                     $doc['valorinscripcion'] = $valorinscripcion;
-                    $doc['torneo'] = $torneo;
 
                     $collection->save($doc);
 //                    echo 'Inserted document with ID: ' . $item['_id'];

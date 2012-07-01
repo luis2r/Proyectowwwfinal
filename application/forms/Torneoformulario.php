@@ -34,7 +34,7 @@ class Application_Form_Torneoformulario extends Zend_Form
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
         
-        $descripcion = new Zend_Form_Element_Text('descripcion');
+        $descripcion = new Zend_Form_Element_Textarea('descripcion');
         $descripcion->setLabel('Descripcion:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');

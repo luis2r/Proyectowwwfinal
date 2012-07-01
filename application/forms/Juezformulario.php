@@ -28,7 +28,7 @@ class Application_Form_Juezformulario extends Zend_Form
        
         //creamos select para seleccionar torneo
         $torneo = $this->createElement('select', 'torneo');
-        $torneo->setLabel("Torneo:")->setRequired(true);
+        $torneo->setLabel("Torneo:");
         $datos = Application_Model_Torneo::all();
         foreach($datos as $c)
         {

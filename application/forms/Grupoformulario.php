@@ -21,7 +21,7 @@ class Application_Form_Grupoformulario extends Zend_Form
                         
         //creamos select para seleccionar torneo
         $torneo = $this->createElement('select', 'torneo');
-        $torneo->setLabel("Torneo:")->setRequired(true);
+        $torneo->setLabel("Torneo:");
         $datos = Application_Model_Torneo::all();
         foreach($datos as $c)
         {
@@ -30,7 +30,7 @@ class Application_Form_Grupoformulario extends Zend_Form
 
         //creamos select para seleccionar torneo
         $ronda = $this->createElement('select', 'ronda');
-        $ronda->setLabel("Ronda:")->setRequired(true);
+        $ronda->setLabel("Ronda:");
         $datos = Application_Model_Ronda::all();
         foreach($datos as $c)
         {
@@ -39,7 +39,7 @@ class Application_Form_Grupoformulario extends Zend_Form
         
         //creamos select para seleccionar torneo
         $cancha = $this->createElement('select', 'cancha');
-        $cancha->setLabel("Cancha:")->setRequired(true);
+        $cancha->setLabel("Cancha:");
         $datos = Application_Model_Canchas::all();
         foreach($datos as $c)
         {
