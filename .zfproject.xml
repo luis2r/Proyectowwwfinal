@@ -73,6 +73,9 @@
           <actionMethod actionName="modificar"/>
           <actionMethod actionName="eliminar"/>
           <actionMethod actionName="mostrar"/>
+          <actionMethod actionName="modificarmobil"/>
+          <actionMethod actionName="partidofinal"/>
+          <actionMethod actionName="partidonorm"/>
         </controllerFile>
         <controllerFile controllerName="Partidofinal">
           <actionMethod actionName="index"/>
@@ -80,6 +83,19 @@
           <actionMethod actionName="modificar"/>
           <actionMethod actionName="eliminar"/>
           <actionMethod actionName="mostrar"/>
+        </controllerFile>
+        <controllerFile controllerName="Setuno">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="crear"/>
+          <actionMethod actionName="modificar"/>
+        </controllerFile>
+        <controllerFile controllerName="Setdos">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="modificar"/>
+          <actionMethod actionName="crear"/>
+        </controllerFile>
+        <controllerFile controllerName="Settres">
+          <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -271,6 +287,36 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Partidofinal">
             <viewScriptFile forActionName="mostrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partido">
+            <viewScriptFile forActionName="modificarmobil"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partido">
+            <viewScriptFile forActionName="partidofinal"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Partido">
+            <viewScriptFile forActionName="partidonorm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Setuno">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Setuno">
+            <viewScriptFile forActionName="crear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Setuno">
+            <viewScriptFile forActionName="modificar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Setdos">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Setdos">
+            <viewScriptFile forActionName="modificar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Setdos">
+            <viewScriptFile forActionName="crear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settres">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

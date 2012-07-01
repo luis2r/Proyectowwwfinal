@@ -12,11 +12,7 @@
     <div id="content"></div>
      
     <form method="post" action="/hello/world">
-    Pick your Date: <?php echo $this->datePicker("dp1",
-                                                 '',
-                                                 array(
-                                                    'defaultDate' =>
-                                                        date('Y/m/d', time())));?>
+    Pick your Date: <?php echo $this->datePicker("dp1",'',array('defaultDate' =>  date('Y/m/d', time())));?>
     <input type="submit" value="Submit" />
     </form>
     

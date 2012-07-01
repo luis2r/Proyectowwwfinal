@@ -276,8 +276,9 @@ class PartidoController extends Zend_Controller_Action
         // action body
     }
 
-    public function eliminarAction()    
-    { // action body
+    public function eliminarAction()
+    {
+     // action body
         //debe venir un parametro, por GET o POST, llamado id, con el id del album a borrar
         $_id = $this->_getParam('_id', 0);
         //si viene algun id
@@ -316,6 +317,7 @@ class PartidoController extends Zend_Controller_Action
             $this->_helper->redirector('index');
 //        }
         // action body
+    
     }
 
     public function mostrarAction()
@@ -329,4 +331,30 @@ class PartidoController extends Zend_Controller_Action
         //que vamos a mostrar
         $this->view->d = $table1;
     }
+
+    public function modificarmobilAction()
+    {
+        $this->_helper->layout()->disableLayout(); 
+//        $this->_helper->viewRenderer->setNoRender(true);
+        
+        
+    }
+
+    public function partidofinalAction()
+    {
+         $this->_helper->layout()->disableLayout(); 
+        // action body
+    }
+
+    public function partidonormAction()
+    {
+      $this->_helper->layout()->disableLayout(); 
+    }
+
+
 }
+
+
+
+
+
