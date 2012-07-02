@@ -30,9 +30,12 @@
         <form action="#" method="post" id="login">           
 	  <div data-role="controlgroup">
 	      
-	      <a href="setuno.html" data-role="button">SET UNO</a>
-	      <a href="setdos.html" data-role="button">SET DOS</a>
-	      <a href="settres.html" data-role="button">SET TRES</a>
+	      <a href="<?php echo $this->url(array('controller' => 'setuno',
+            'action' => 'index')); ?>" data-role="button">SET UNO</a>
+	      <a href="<?php echo $this->url(array('controller' => 'setdos',
+            'action' => 'index')); ?>" data-role="button">SET DOS</a>
+	      <a href="<?php echo $this->url(array('controller' => 'settres',
+            'action' => 'index')); ?>" data-role="button">SET TRES</a>
 	  </div>	
       </form>
     </div><!-- /content -->
