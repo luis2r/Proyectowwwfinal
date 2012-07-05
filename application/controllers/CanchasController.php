@@ -10,12 +10,9 @@ class CanchasController extends Zend_Controller_Action
     {
         //creo objeto que maneja la tabla album
         $table = Application_Model_Canchas::all();
-        //obtengo listado de todas las filas de la tabla, y las
-        //coloco en la variable datos de la pagina web (de la vista) 
-        //que vamos a mostrar
         $this->view->datos = $table;
     }
-
+    
     public function crearAction() 
     {
         $this->view->title = "Crear cancha";

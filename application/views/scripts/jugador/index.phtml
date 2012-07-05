@@ -42,17 +42,49 @@
                 <!--                    fecha del album-->
                 <td><?php echo $this->escape($d->modalidad); ?></td>
                 <!--                        descripcion-->
-                <td><?php echo $this->escape($d->torneo); ?></td>
+                <td>
+                <?php
+                $datos1 = Application_Model_Torneo::find($d->torneo);
+                if($datos1=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos1->nombre);
+                ?>
+                </td>
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->tipo); ?></td>
                 <!--                        descripcion-->
-                <td><?php echo $this->escape($d->categoria); ?></td>
+                <td>
+                <?php
+                $datos2 = Application_Model_Categoria::find($d->categoria);
+                if($datos2=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos2->nombre);
+                ?>
+                </td>
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->ranking); ?></td>
                 <!--                        descripcion-->
-                <td><?php echo $this->escape($d->grupo); ?></td>
+                <td>
+                <?php
+                $datos3 = Application_Model_Grupo::find($d->grupo);
+                if($datos3=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos3->nombre);
+                ?>
+                </td>
                 <!--                        descripcion-->
-                <td><?php echo $this->escape($d->pareja); ?></td>
+                <td>
+                <?php
+                $datos4= Application_Model_Pareja::find($d->pareja);
+                if($datos4=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos4->nombre);
+                ?>
+                </td>
                 <!--                   enlace para borrar el album-->
                 
                 <td><a href="<?php  echo $this->url(array('controller' => 'jugador', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  

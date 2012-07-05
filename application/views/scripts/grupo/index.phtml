@@ -36,11 +36,35 @@
                 <!--                id del artista-->
                 <td><?php echo $this->escape($d->numintegrantes); ?></td>
                 <!--                    fecha del album-->
-                <td><?php echo $this->escape($d->torneo); ?></td>
+                <td>
+                <?php
+                $datos1 = Application_Model_Torneo::find($d->torneo);
+                if($datos1=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos1->nombre);
+                ?>
+                </td>
                 <!--                        descripcion-->
-                <td><?php echo $this->escape($d->ronda); ?></td>
+                <td>
+                <?php
+                $datos2 = Application_Model_Ronda::find($d->ronda);
+                if($datos2=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos2->nombre);
+                ?>
+                </td>
                 <!--                        descripcion-->
-                <td><?php echo $this->escape($d->cancha); ?></td>
+                <td>
+                <?php
+                $datos3 = Application_Model_Canchas::find($d->cancha);
+                if($datos3=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos3->ubicacion);
+                ?>
+                </td>
                 <!--                   enlace para borrar el album-->
                 <td><a href="<?php  echo $this->url(array('controller' => 'grupo', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
                     <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 

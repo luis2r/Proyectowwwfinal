@@ -21,6 +21,7 @@
             <th>Jugador dos</th>
             <th>Juez</th>
             <th>Torneo</th>
+            <th>Puntos</th>
             <th>Acción</th>
         </tr>
     </thead>
@@ -29,14 +30,48 @@
         <?php foreach ($this->datos as $d): ?>
             <!--           por cada fila, muestro sus datos -->
             <tr>                
-                <td><a href="<?php echo $this->url(array('controller' => 'partidofinal', 'action' => 'mostrar', '_id' => $d->_id)); ?>"><?php echo $d->_id; ?></a></td>
+                <td><?php echo $this->escape($d->_id); ?></td>
                 <!--            nombre del album, con un enlace para editar el album-->
-                <td><?php echo $this->escape($d->jugadoruno); ?></td>                                              
+                <td>
+                <?php
+                $datos1 = Application_Model_Jugador::find($d->jugadoruno);
+                if($datos1=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos1->nombre);
+                ?>
+                </td>
                 <!--                        descripcion-->
-                <td><?php echo $this->escape($d->jugadordos); ?></td>
+                <td>
+                <?php
+                $datos2 = Application_Model_Jugador::find($d->jugadordos);
+                if($datos2=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos2->nombre);
+                ?>
+                </td>
                 <!--                        descripcion-->
-                <td><?php echo $this->escape($d->juez); ?></td>
-                <td><?php echo $this->escape($d->torneo); ?></td>   
+                <td>
+                <?php
+                $datos3 = Application_Model_Juez::find($d->juez);
+                if($datos3=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos3->nombre);
+                ?>
+                </td>
+                <td>
+                <?php
+                $datos4 = Application_Model_Torneo::find($d->torneo);
+                if($datos4=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos4->nombre);
+                ?>
+                </td>
+                
+                <td><a href="<?php echo $this->url(array('controller' => 'partidofinal', 'action' => 'mostrar', '_id' => $d->_id)); ?>">Puntos_del_Partido</a></td>
                 <!--                   enlace para borrar el album-->
                 <td><a href="<?php  echo $this->url(array('controller' => 'partidofinal', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
                     <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 

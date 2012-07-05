@@ -45,7 +45,7 @@ class RankingController extends Zend_Controller_Action
 //                $jugadorCrear = new Application_Model_Jugador();
                 $posicion = $form->getValue('posicion');
                 $jugador = $form->getValue('jugador');
-                $categoriajugador = $form->getValue('categoriajugador');
+                
 //              $status = $jugadorCrear->save();
 
                 try {
@@ -59,7 +59,7 @@ class RankingController extends Zend_Controller_Action
                     $item = array(
                         'posicion' => $posicion,
                         'jugador' => $jugador,
-                        'categoriajugador' => $categoriajugador,                        
+                        
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -112,8 +112,6 @@ class RankingController extends Zend_Controller_Action
                 $_id = $this->_getParam('_id', 0);                               
                 $posicion = $form->getValue('posicion');
                 $jugador= $form->getValue('jugador');
-                $categoriajugador = $form->getValue('categoriajugador');
-                
                 
 
                 try {
@@ -136,9 +134,7 @@ class RankingController extends Zend_Controller_Action
                     // update document with new values
                     // save back to collection
                     $doc['posicion'] = $posicion;
-                    $doc['jugador'] = $jugador;
-                    $doc['categoriajugador'] = $categoriajugador;
-                   
+                    $doc['jugador'] = $jugador;                   
 
                     $collection->save($doc);
 //                    echo 'Inserted document with ID: ' . $item['_id'];

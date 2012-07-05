@@ -37,7 +37,15 @@
                 <!--                    fecha del album-->
                 <td><?php echo $this->escape($d->experiencia); ?></td>
                 <!--                        descripcion-->
-                <td><?php echo $this->escape($d->torneo); ?></td>
+                <td>
+                <?php
+                $datos1 = Application_Model_Torneo::find($d->torneo);
+                if($datos1=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos1->nombre);
+                ?>
+                </td>
                 <!--                   enlace para borrar el album-->
 
                 <td><a href="<?php  echo $this->url(array('controller' => 'juez', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  

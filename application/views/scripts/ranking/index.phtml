@@ -17,9 +17,8 @@
     <thead>
         <tr>
             <th>Identificador</th>
-             <th>Jugador</th>
+            <th>Jugador</th>
             <th>Posicion</th>           
-            <th>categoria</th>          
             <th>Acción</th>
         </tr>
     </thead>
@@ -33,10 +32,6 @@
                 <td><a href="<?php echo $this->url(array('controller' => 'ranking', 'action' => 'editar', '_id' => $d->_id)); ?>"><?php echo $d->jugador; ?></a></td>
                 <!--                id del artista-->
                 <td><?php echo $this->escape($d->posicion); ?></td>
-                <!--                    fecha del album-->
-                <td><?php echo $this->escape($d->categoriajugador); ?></td>
-                <!--                        descripcion-->                
-                <!--                   enlace para borrar el album-->
 
                 <td><a href="<?php  echo $this->url(array('controller' => 'ranking', 'action' => 'editar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
                     <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 

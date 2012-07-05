@@ -54,7 +54,7 @@ class Application_Form_Jugadorformulario extends Zend_Form
         //creamos select para seleccionar torneo
         $grupo = $this->createElement('select', 'grupo');
         $grupo->setLabel("Grupo:");
-        $grupo->addMultiOption(11111,'Ninguno');
+        $grupo->addMultiOption(1,'Ninguno');
         $datos = Application_Model_Grupo::all();
         foreach($datos as $c)
         {
@@ -64,7 +64,7 @@ class Application_Form_Jugadorformulario extends Zend_Form
         //creamos select para seleccionar torneo
         $pareja = $this->createElement('select', 'pareja');
         $pareja->setLabel("Pareja:");
-        $pareja->addMultiOption(11111,'Ninguna');
+        $pareja->addMultiOption(1,'Ninguno');
         $datos = Application_Model_Pareja::all();
         foreach($datos as $c)
         {
