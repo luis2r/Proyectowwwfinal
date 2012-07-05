@@ -1,7 +1,7 @@
 <script type="text/javascript" charset="utf-8">
-    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar el grupo?');
+    function confirmDelete(d) {var deleteArticle = confirm('Está seguro que desea eliminar la programacion?');
         if(deleteArticle){
-            window.location.href = '<?php echo $this->url(array('controller' => 'grupo', 'action' => 'eliminar')); ?>'+'/_id/'+d;
+            window.location.href = '<?php echo $this->url(array('controller' => 'programacion', 'action' => 'eliminar')); ?>'+'/_id/'+d;
         }
         return;
     }
@@ -9,18 +9,18 @@
 
 <!--para agregar un nuevo juez-->
 <div class="col_6">
-<a href="<?php echo $this->url(array('controller' => 'grupo',
-            'action' => 'crear')); ?>">Crear nuevo Grupo</a>
-	<h4>Grupos</h4>
+<a href="<?php echo $this->url(array('controller' => 'programacion',
+            'action' => 'crear')); ?>">Crear nueva Programacion</a>
+	<h4>Programacion</h4>
 <!--creo una tabla para mostrar los datos-->
 <table class="sortable">
     <thead>
         <tr>
             <th>Identificador</th>
-            <th>Nombre</th>
-            <th>Num. de Integrantes</th>            
-            <th>Torneo</th>
-            <th>Ronda</th>
+            <th>Grupo</th>
+            <th>Cancha</th>            
+            <th>Fecha</th>
+            <th>Hora</th>
             <th>Acción</th>
         </tr>
     </thead>
@@ -31,31 +31,31 @@
             <tr>
                 <td><?php echo $this->escape($d->_id); ?></td>
                 <!--            nombre del album, con un enlace para editar el album-->
-                <td><a href="<?php echo $this->url(array('controller' => 'grupo', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
-                <!--                id del artista-->
-                <td><?php echo $this->escape($d->numintegrantes); ?></td>
-                <!--                    fecha del album-->
                 <td>
                 <?php
-                $datos1 = Application_Model_Torneo::find($d->torneo);
+                $datos1 = Application_Model_Grupo::find($d->grupo);
                 if($datos1=="")
                     echo "Ninguno";
                 else
                     echo $this->escape($datos1->nombre);
                 ?>
                 </td>
+                <!--                    fecha del album-->
                 <!--                        descripcion-->
                 <td>
                 <?php
-                $datos2 = Application_Model_Ronda::find($d->ronda);
+                $datos2 = Application_Model_Canchas::find($d->cancha);
                 if($datos2=="")
                     echo "Ninguno";
                 else
                     echo $this->escape($datos2->nombre);
                 ?>
                 </td>
+                
+                <td><?php echo $this->escape($d->fecha); ?></td>
+                <td><?php echo $this->escape($d->hora); ?></td>
                 <!--                        descripcion-->                
-                <td><a href="<?php  echo $this->url(array('controller' => 'grupo', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
+                <td><a href="<?php  echo $this->url(array('controller' => 'programacion', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
                     <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 
                 </td>
             </tr>

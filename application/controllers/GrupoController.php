@@ -19,7 +19,8 @@ class GrupoController extends Zend_Controller_Action
     }
 
     public function crearAction()
-    {$this->view->title = "Crear Grupo";
+    {
+        $this->view->title = "Crear Grupo";
         //valor para <head><title>
         $this->view->headTitle($this->view->title);
         //creo el formulario
@@ -47,8 +48,7 @@ class GrupoController extends Zend_Controller_Action
                 $nombre = $form->getValue('nombre');
                 $numintegrantes = $form->getValue('numintegrantes');
                 $torneo = $form->getValue('torneo');
-                $ronda = $form->getValue('ronda');
-                $cancha = $form->getValue('cancha');
+                $ronda = $form->getValue('ronda');                
 //              $status = $jugadorCrear->save();
 
                 try {
@@ -63,8 +63,7 @@ class GrupoController extends Zend_Controller_Action
                         'nombre' => $nombre,
                         'numintegrantes' => $numintegrantes,
                         'torneo' => $torneo,
-                        'ronda' => $ronda,
-                        'cancha' => $cancha,                        
+                        'ronda' => $ronda,                        
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -88,7 +87,8 @@ class GrupoController extends Zend_Controller_Action
     }
 
     public function modificarAction()
-    {$this->view->title = "Editar Grupo";
+    {
+        $this->view->title = "Editar Grupo";
         //valor para <head><title>
         $this->view->headTitle($this->view->title);
         //creo el formulario
@@ -119,7 +119,6 @@ class GrupoController extends Zend_Controller_Action
                 $numintegrantes = $form->getValue('numintegrantes');
                 $torneo = $form->getValue('torneo');
                 $ronda = $form->getValue('ronda');
-                $cancha = $form->getValue('cancha');
 
                 try {
                     // open connection to MongoDB server
@@ -144,7 +143,6 @@ class GrupoController extends Zend_Controller_Action
                     $doc['numintegrantes'] = $numintegrantes;
                     $doc['torneo'] = $torneo;
                     $doc['ronda'] = $ronda;
-                    $doc['cancha'] = $cancha;
 
                     $collection->save($doc);
 //                    echo 'Inserted document with ID: ' . $item['_id'];

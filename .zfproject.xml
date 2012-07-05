@@ -97,6 +97,13 @@
         <controllerFile controllerName="Settres">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Programacion">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="crear"/>
+          <actionMethod actionName="ecitar"/>
+          <actionMethod actionName="eliminar"/>
+          <actionMethod actionName="modificar"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Torneoformulario"/>
@@ -114,6 +121,7 @@
         <formFile formName="Partidoformulario"/>
         <formFile formName="Partidofinal"/>
         <formFile formName="Partidofinalformulario"/>
+        <formFile formName="Programacionformulario"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -134,6 +142,7 @@
         <modelFile modelName="Partido"/>
         <modelFile modelName="City"/>
         <modelFile modelName="Partidofinal"/>
+        <modelFile modelName="Programacion"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -317,6 +326,21 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Settres">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Programacion">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Programacion">
+            <viewScriptFile forActionName="crear"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Programacion">
+            <viewScriptFile forActionName="ecitar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Programacion">
+            <viewScriptFile forActionName="eliminar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Programacion">
+            <viewScriptFile forActionName="modificar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

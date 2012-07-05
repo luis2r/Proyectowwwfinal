@@ -20,9 +20,8 @@
     <thead>
         <tr>
             <th>Identificador</th>
+            <th>Nombre</th>
             <th>Ubicacion</th>
-            <th>Fecha</th>
-            <th>Hora</th>
             <th>Torneo</th>
             <th>Acción</th>
         </tr>
@@ -34,12 +33,10 @@
             <tr>
                 <td><?php echo $this->escape($d->_id); ?></td>
                 <!--         nombre del album, con un enlace para editar el album-->
-                <td><a href="<?php echo $this->url(array('controller' => 'canchas', 'action' => 'editar', '_id' => $d->_id)); ?>"><?php echo $d->ubicacion; ?></a></td>
+                <td><a href="<?php echo $this->url(array('controller' => 'canchas', 'action' => 'editar', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
                 <!--                id del artista-->
-                <td><?php echo $this->escape($d->fecha); ?></td>
-                <!--         fecha del album-->
-                <td><?php echo $this->escape($d->hora); ?></td>
-                <!--         descripcion-->                                
+                <td><?php echo $this->escape($d->ubicacion); ?></td>
+                <!--                id del artista-->
                 <td>
                 <?php
                 $datos1 = Application_Model_Torneo::find($d->torneo);

@@ -36,22 +36,13 @@ class Application_Form_Grupoformulario extends Zend_Form
         {
             $ronda->addMultiOption($c->_id,$c->nombre);
         }
-        
-        //creamos select para seleccionar torneo
-        $cancha = $this->createElement('select', 'cancha');
-        $cancha->setLabel("Cancha:");
-        $datos = Application_Model_Canchas::all();
-        foreach($datos as $c)
-        {
-            $cancha->addMultiOption($c->_id,$c->ubicacion);
-        }
-        
+                
         //boton para enviar formulario
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($nombre,$numintegrantes,$torneo,$ronda,$cancha,$submit));
+        $this->addElements(array($nombre,$numintegrantes,$torneo,$ronda,$submit));
     }
 
 

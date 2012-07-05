@@ -1,30 +1,35 @@
 <?php
 
-class CanchasController extends Zend_Controller_Action
+class ProgramacionController extends Zend_Controller_Action
 {
-    public function init() {
-  
+
+    public function init()
+    {
+        /* Initialize action controller here */
     }
 
     public function indexAction()
     {
         //creo objeto que maneja la tabla album
-        $table = Application_Model_Canchas::all();
-        $this->view->datos = $table;
+        $table = Application_Model_Programacion::all();
+        //obtengo listado de todas las filas de la tabla, y las
+        //coloco en la variable datos de la pagina web (de la vista) 
+        //que vamos a mostrar
+        $this->view->datos = $table; 
     }
-    
-    public function crearAction() 
+
+    public function crearAction()
     {
-        $this->view->title = "Crear cancha";
+        $this->view->title = "Crear Programacion";
         //valor para <head><title>
         $this->view->headTitle($this->view->title);
         //creo el formulario
-        $form = new Application_Form_Canchasformulario();
+        $form = new Application_Form_Programacionformulario();
         //cambio el texto del boton submit
-        $form->submit->setLabel('Agregar cancha');
+        $form->submit->setLabel('Agregar programacion');
         //lo asigno oa la accion (la pag web que se mostrara)
         $this->view->form = $form;
-        
+
         //los formularios envian sus datos a traves de POST
         //si vienen datos de post, es que el usuario ha enviado el formulario
         if ($this->getRequest()->isPost()) {
@@ -34,28 +39,31 @@ class CanchasController extends Zend_Controller_Action
 
             //isValid() revisa todos los validadores y filtros que le
             //aplicamos a los objetos del formulario: se asegura de que los
-            //campos requeridos se hallan llenado, que el formato de la 
+            //campos requeridos se hallan llenado, que el formato de la fecha
             //sea el correcto, etc
             if ($form->isValid($formData)) {
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
-                $nombre = $form->getValue('nombre');
-                $ubicacion = $form->getValue('ubicacion');
-                $torneo = $form->getValue('torneo');
-                
+                $grupo = $form->getValue('grupo');
+                $cancha = $form->getValue('cancha');
+                $fecha = $form->getValue('fecha');
+                $hora = $form->getValue('hora');                
+//              $status = $jugadorCrear->save();
+
                 try {
                     // open connection to MongoDB server
                     $conn = new Mongo('localhost');
                     // access database
                     $db = $conn->proyecto;
                     // access collection
-                    $collection = $db->cancha;
+                    $collection = $db->programacion;
                     // insert a new document
-                    $item = array(                
-                        'nombre' => $nombre,
-                        'ubicacion' => $ubicacion,
-                        'torneo' => $torneo                        
+                    $item = array(
+                        'grupo' => $grupo,
+                        'cancha' => $cancha,
+                        'fecha' => $fecha,
+                        'hora' => $hora,                        
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -74,18 +82,19 @@ class CanchasController extends Zend_Controller_Action
                 //enviaron, Y ADEMAS CON LOS MENSAJES DE ERROR, los que se le mostrarán
                 //al usuario
                 $form->populate($formData);
-            }
-        }
-    }//fin action crear.....
-
-    public function editarAction() {
-        $this->view->title = "Editar Cancha";
+            }        
+    }
+    }
+    
+    public function modificarAction()
+    {
+        $this->view->title = "Editar Programacion";
         //valor para <head><title>
         $this->view->headTitle($this->view->title);
-       //creo el formulario
-        $form = new Application_Form_Canchasformulario();
+        //creo el formulario
+        $form = new Application_Form_Programacionformulario();
         //cambio el texto del boton submit
-        $form->submit->setLabel('Modificar cancha');
+        $form->submit->setLabel('Modificar programacion');
         //lo asigno oa la accion (la pag web que se mostrara)
         $this->view->form = $form;
 
@@ -98,7 +107,7 @@ class CanchasController extends Zend_Controller_Action
 
             //isValid() revisa todos los validadores y filtros que le
             //aplicamos a los objetos del formulario: se asegura de que los
-            //campos requeridos se hallan llenado, que el formato de la 
+            //campos requeridos se hallan llenado, que el formato de la fecha
             //sea el correcto, etc
 
             if ($form->isValid($formData)) {
@@ -106,9 +115,11 @@ class CanchasController extends Zend_Controller_Action
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
                 $_id = $this->_getParam('_id', 0);
-                $nombre = $form->getValue('nombre');
-                $ubicacion = $form->getValue('ubicacion');
-                $torneo = $form->getValue('torneo');
+                $grupo = $form->getValue('grupo');
+                $cancha = $form->getValue('cancha');
+                $fecha = $form->getValue('fecha');
+                $hora = $form->getValue('hora');
+
                 try {
                     // open connection to MongoDB server
                     $conn = new Mongo('localhost');
@@ -117,7 +128,7 @@ class CanchasController extends Zend_Controller_Action
                     $db = $conn->proyecto;
 
                     // access collection
-                    $collection = $db->cancha;
+                    $collection = $db->programacion;
 
                     // insert a new document
                     // retrieve existing document 
@@ -128,10 +139,10 @@ class CanchasController extends Zend_Controller_Action
 
                     // update document with new values
                     // save back to collection
-                    $doc['nombre'] = $nombre;
-                    $doc['ubicacion'] = $ubicacion;
-                    $doc['torneo'] = $torneo;
-
+                    $doc['grupo'] = $grupo;
+                    $doc['cancha'] = $cancha;
+                    $doc['fecha'] = $fecha;
+                    $doc['hora'] = $hora;
 
                     $collection->save($doc);
 //                    echo 'Inserted document with ID: ' . $item['_id'];
@@ -176,7 +187,7 @@ class CanchasController extends Zend_Controller_Action
                     $db = $conn->proyecto;
 
                     // access collection
-                    $collection = $db->cancha;
+                    $collection = $db->programacion;
 
                     $criteria = array(
                         '_id' => new MongoId($_id),
@@ -188,8 +199,6 @@ class CanchasController extends Zend_Controller_Action
                 } catch (MongoException $e) {
                     die('Error: ' . $e->getMessage());
                 }
-
-
                 //populate() toma los datos de $album y los coloca en el formualrio.
                 //PARA QUE ESTO FUNCIONE, EL NOMBRE DE LOS OBJETOS DEL FORM DEBE
                 //SER IGUAL AL NOMBRE DE LOS CAMPOS EN LA TABLA!!
@@ -198,9 +207,11 @@ class CanchasController extends Zend_Controller_Action
         }
     }
 
-    public function eliminarAction() {
+    
+
+    public function eliminarAction()
+    {
         // action body
-         // action body
         //debe venir un parametro, por GET o POST, llamado id, con el id del album a borrar
         $_id = $this->_getParam('_id', 0);
         //si viene algun id
@@ -215,7 +226,7 @@ class CanchasController extends Zend_Controller_Action
                 $db = $conn->proyecto;
 
                 // access collection
-                $collection = $db->cancha;
+                $collection = $db->programacion;
 
                 $criteria = array(
                     '_id' => $_id,
@@ -226,7 +237,6 @@ class CanchasController extends Zend_Controller_Action
                     '_id' => new MongoId($_id),
                 );
                 $collection->remove($criteria);
-
                 $conn->close();
             } catch (MongoConnectionException $e) {
                 die('Error connecting to MongoDB server');
@@ -234,14 +244,18 @@ class CanchasController extends Zend_Controller_Action
                 die('Error: ' . $e->getMessage());
             }
 
-            //llamo a la funcion borrar
-     
+            //llamo a la funcion borrar     
             //redirijo a la accion index de este controlador, es decir,
             //al listado de albumes
-            $this->_helper->redirector('index');
-//        }
+            $this->_helper->redirector('index');//   
     }
-
-
 }
+
+
+
+
+
+
+
+
 

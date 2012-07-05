@@ -6,20 +6,14 @@ class Application_Form_Canchasformulario extends Zend_Form
   public function init()
     {
       $this->setName('canchas');
-               
+        
+        $nombre = new Zend_Form_Element_Text('nombre');
+        $nombre->setLabel('Nombre:')->setRequired(true)->
+                addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
+      
         $ubicacion = new Zend_Form_Element_Text('ubicacion');
         $ubicacion->setLabel('Ubicacion:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
-
-        // creamos <input text> para escribir nombre de juez
-        $fecha = new Zend_Form_Element_Text('fecha');
-        $fecha->setLabel('Fecha :')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');
-        
-        // creamos <input text> para escribir nombre de juez
-        $hora = new Zend_Form_Element_Text('hora');
-        $hora->setLabel('Hora :')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->addValidator('NotEmpty');        
          
         //creamos select para seleccionar torneo
         $torneo = $this->createElement('select', 'torneo');
@@ -34,7 +28,7 @@ class Application_Form_Canchasformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
          //agregolos objetos creados al formulario
-        $this->addElements(array($ubicacion,$fecha,$hora,$torneo,$submit));
+        $this->addElements(array($nombre,$ubicacion,$torneo,$submit));
         
     }
 
