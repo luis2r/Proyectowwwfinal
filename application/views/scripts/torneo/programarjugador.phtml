@@ -10,6 +10,7 @@
         <!--    recorro el arreglo de datos-->
         <?php foreach ($this->dato as $d): ?>
             <!--           por cada fila, muestro sus datos -->
+<<<<<<< HEAD
             <tr>
                 <td>
                 <?php
@@ -27,3 +28,30 @@
 </table>
 
 <center><button>Agregar Jueces</button></center>
+=======
+            <?php                                
+                if(is_int($d->_id))
+                {    
+                    $var=0;
+                }    
+                else
+                {    
+                    $datos = Application_Model_Jugador::find($d->jugador);
+                    if($datos=="")
+                        $var = "Ninguno";
+                    else
+                        $var= $datos->nombre;
+                }
+                if(is_string($var)) {?>
+                <tr><td><?php echo $this->escape($var); }?></td></tr>
+            <!--    fin del for-->
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php  
+$table = Application_Model_Programarjugador::one();
+$dato = $table->torneo;
+?>
+<center><a href="<?php echo $this->url(array('controller' => 'torneo', 'action' => 'programarjuez', '_id' => $dato)); ?>"><button>Asignar Jueces</button></a></center>
+>>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git

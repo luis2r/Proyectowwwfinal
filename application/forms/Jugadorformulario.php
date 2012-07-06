@@ -22,12 +22,6 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $modalidad->addMultiOption('Masculino', 'Masculino');        
         $modalidad->addMultiOption('Femenino', 'Femenino');
 
-        //creamos <input text> para escribir el tipo del jugador
-        $tipo = $this->createElement('select', 'tipo');
-        $tipo->setLabel("Tipo:")->setRequired(true);
-        $tipo->addMultiOption('Individual', 'Individual');        
-        $tipo->addMultiOption('Pareja', 'Pareja');
-        
         //creamos select para seleccionar torneo
         $categoria = $this->createElement('select', 'categoria');
         $categoria->setLabel("Categoria:");
@@ -47,7 +41,11 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
+<<<<<<< HEAD
         $this->addElements(array($nombre,$documento,$modalidad,$tipo,$categoria,$ranking,$submit));
+=======
+        $this->addElements(array($nombre,$documento,$modalidad,$categoria,$ranking,$submit));
+>>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
     }
 }
 
