@@ -1,0 +1,38 @@
+<?php echo $this->form; ?>
+
+<table class="sortable">
+    <thead>
+        <tr>            
+            <th>Nombre</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tbody>
+        <!--    recorro el arreglo de datos-->
+        <?php foreach ($this->dato as $d): ?>
+            <!--           por cada fila, muestro sus datos -->
+            <?php                                
+                if(is_int($d->_id))
+                {    
+                    $var=0;
+                }    
+                else
+                {    
+                    $datos = Application_Model_Juez::find($d->juez);
+                    if($datos=="")
+                        $var = "Ninguno";
+                    else
+                        $var= $datos->nombre;
+                }
+                if(is_string($var)) {?>
+                <tr><td><?php echo $this->escape($var); }?></td></tr>
+            <!--    fin del for-->
+        <?php endforeach; ?>    
+    </tbody>
+</table>
+
+<?php  
+$table = Application_Model_Programarjugador::one();
+$dato = $table->torneo;
+?>
+<center><a href="<?php echo $this->url(array('controller' => 'torneo', 'action' => 'programarcancha', '_id' => $dato)); ?>"><button>Asignar Canchas</button></a></center>

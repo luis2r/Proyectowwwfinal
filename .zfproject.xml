@@ -15,12 +15,11 @@
           <actionMethod actionName="modificar"/>
           <actionMethod actionName="eliminar"/>
           <actionMethod actionName="programarjugador"/>
-<<<<<<< HEAD
-=======
+
           <actionMethod actionName="programarjuez"/>
           <actionMethod actionName="programarcancha"/>
           <actionMethod actionName="programarpareja"/>
->>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
+
         </controllerFile>
         <controllerFile controllerName="Juez">
           <actionMethod actionName="index"/>
@@ -152,13 +151,13 @@
         <formFile formName="Partidofinal"/>
         <formFile formName="Partidofinalformulario"/>
         <formFile formName="Programacionformulario"/>
-<<<<<<< HEAD
+
         <formFile formName="User"/>
-=======
+
         <formFile formName="ProgramarJuezformulario"/>
         <formFile formName="ProgramarCanchaformulario"/>
         <formFile formName="ProgramarParejaformulario"/>
->>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
+
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -181,12 +180,11 @@
         <modelFile modelName="Partidofinal"/>
         <modelFile modelName="Programacion"/>
         <modelFile modelName="Programarjugador"/>
-<<<<<<< HEAD
-=======
+
         <modelFile modelName="Programarjuez"/>
         <modelFile modelName="Programarcancha"/>
         <modelFile modelName="Programarpareja"/>
->>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
+
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -386,7 +384,7 @@
           <viewControllerScriptsDirectory forControllerName="Programacion">
             <viewScriptFile forActionName="modificar"/>
           </viewControllerScriptsDirectory>
-<<<<<<< HEAD
+
           <viewControllerScriptsDirectory forControllerName="Hello">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
@@ -422,7 +420,7 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="list"/>
-=======
+
           <viewControllerScriptsDirectory forControllerName="Torneo">
             <viewScriptFile forActionName="programarjugador"/>
           </viewControllerScriptsDirectory>
@@ -434,7 +432,7 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Torneo">
             <viewScriptFile forActionName="programarpareja"/>
->>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
+
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
