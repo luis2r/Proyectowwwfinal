@@ -16,13 +16,44 @@
     </head>
 
 <body> 
+            <div data-role="header" data-position="inline" data-theme="b">    
 
+                <a href="<?php echo $this->url(array('controller' => 'ejerciciosarealizar','action' => 'index'));
+               ?>" data-icon="home" data-transition="flip">Home</a>
+                <h3>
+                    <?php echo $this->title; ?>
+                </h3>
+                <a href="prueba/prueba.html" data-icon="person" data-transition="flip">Prueba</a>
+            </div>
+
+
+            <div data-role="content">
+              
+                <?php echo $this->form; ?>
+           
+             
+        </div>
+<!--        <div data-theme="b" data-role="footer">
+                <h3>
+                 
+              </h3>
+       </div>-->
+    
+    
+    
+    
+    
+    
+    
+    
+<!--    
+    
 
 <div data-role="page" id="login" data-title="Login">
     <div data-role="header" data-theme="c">
         <h1>Iniciar Sesi&oacute;n</h1>
         <a href="#home" data-icon="home" data-iconpos="notext" class="ui-btn-right"></a>
-    </div><!-- /header -->
+    </div> /header 
  
     <div data-role="content" data-theme="c">
     
@@ -119,7 +150,7 @@
 	         <fieldset class="ui-grid-a">
 		    <div class="ui-block-a">
 		       <label for="basic">Jugador uno:</label>
-		       <input type="text" name="name" id="basic" value=""  />
+		       < input type="text" name="name" id="basic" value=""  />
 		       <label for="basic">Jugador uno:</label>
 		       <input type="text" name="name" id="basic" value=""  />
 		    </div>
@@ -166,12 +197,12 @@
 	    </div>
 	      
         </form>
-    </div><!-- /content -->
+    </div> /content 
  
     <div data-role="footer" data-theme="c">
         <h4>&copy; </h4>
-    </div><!-- /footer -->
-</div><!-- /page login -->
+    </div> /footer 
+</div> /page login -->
 
 
 </body> 

@@ -20,12 +20,7 @@
             <action>index</action>     	
         </categoria>
                         
-        <grupo>
-            <label>Grupos</label>
-            <controller>grupo</controller>   
-            <action>index</action>     	
-        </grupo>
-                        
+       
                         
         <juez>
             <label>Jueces</label>

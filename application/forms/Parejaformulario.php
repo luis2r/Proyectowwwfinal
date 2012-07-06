@@ -6,18 +6,27 @@ class Application_Form_Parejaformulario extends Zend_Form
     {
         $this->setName('Pareja'); 
         
-        //creamos <input text> para escribir nombre del jugador
-        $nombre = new Zend_Form_Element_Text('nombre');
-        $nombre->setLabel('Nombre:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
+        $jugadoruno = $this->createElement('select', 'jugadoruno');
+        $jugadoruno->setLabel("Jugador uno:")->setRequired(true);
+        $datos = Application_Model_Jugador::all();
+        foreach($datos as $c)
+        {
+            $jugadoruno->addMultiOption($c->_id,$c->nombre);
+        }
         
-        //boton para enviar formulario
+        $jugadordos = $this->createElement('select', 'jugadordos');
+        $jugadordos->setLabel("Jugador dos:")->setRequired(true);
+        $datos = Application_Model_Jugador::all();
+        foreach($datos as $c)
+        {
+            $jugadordos->addMultiOption($c->_id,$c->nombre);
+        }
+        
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($nombre,$submit));
+        $this->addElements(array($jugadoruno,$jugadordos,$submit));
     }
 }
 

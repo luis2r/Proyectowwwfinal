@@ -42,8 +42,7 @@ class CanchasController extends Zend_Controller_Action
 //                $jugadorCrear = new Application_Model_Jugador();
                 $nombre = $form->getValue('nombre');
                 $ubicacion = $form->getValue('ubicacion');
-                $torneo = $form->getValue('torneo');
-                
+                                
                 try {
                     // open connection to MongoDB server
                     $conn = new Mongo('localhost');
@@ -54,8 +53,7 @@ class CanchasController extends Zend_Controller_Action
                     // insert a new document
                     $item = array(                
                         'nombre' => $nombre,
-                        'ubicacion' => $ubicacion,
-                        'torneo' => $torneo                        
+                        'ubicacion' => $ubicacion                        
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -108,7 +106,6 @@ class CanchasController extends Zend_Controller_Action
                 $_id = $this->_getParam('_id', 0);
                 $nombre = $form->getValue('nombre');
                 $ubicacion = $form->getValue('ubicacion');
-                $torneo = $form->getValue('torneo');
                 try {
                     // open connection to MongoDB server
                     $conn = new Mongo('localhost');
@@ -130,8 +127,6 @@ class CanchasController extends Zend_Controller_Action
                     // save back to collection
                     $doc['nombre'] = $nombre;
                     $doc['ubicacion'] = $ubicacion;
-                    $doc['torneo'] = $torneo;
-
 
                     $collection->save($doc);
 //                    echo 'Inserted document with ID: ' . $item['_id'];

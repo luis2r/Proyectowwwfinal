@@ -107,10 +107,22 @@ table.articles td {
 {
     background: #CCC;
 }*/
+
 #subNav,#adminMenu,#userForm {
 background: #fff;
 width: 10em;
 height: 10em;
 margin: 0 0 .5em 0;
 float: right;
+}
+.superior
+{
+   width: 800px;
+   margin: 0 auto;
+}
+.columna
+{
+   width: 100%;
+   height: 200px;
+
 }

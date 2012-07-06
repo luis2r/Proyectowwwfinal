@@ -45,12 +45,9 @@ class JugadorController extends Zend_Controller_Action
                 $nombre = $form->getValue('nombre');
                 $documento = $form->getValue('documento');
                 $modalidad = $form->getValue('modalidad');
-                $torneo = $form->getValue('torneo');
                 $tipo = $form->getValue('tipo');
                 $categoria = $form->getValue('categoria');
-                $ranking = $form->getValue('ranking');
-                $grupo = $form->getValue('grupo');
-                $pareja = $form->getValue('pareja');
+                $ranking = $form->getValue('ranking');                
 //                $status = $jugadorCrear->save();
 
                 try {
@@ -65,12 +62,9 @@ class JugadorController extends Zend_Controller_Action
                         'nombre' => $nombre,
                         'documento' => $documento,
                         'modalidad' => $modalidad,
-                        'torneo' => $torneo,
                         'tipo' => $tipo,
                         'categoria' => $categoria,
-                        'ranking' => $ranking,
-                        'grupo' => $grupo,
-                        'pareja' => $pareja
+                        'ranking' => $ranking
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -124,12 +118,9 @@ class JugadorController extends Zend_Controller_Action
                 $nombre = $form->getValue('nombre');
                 $documento = $form->getValue('documento');
                 $modalidad = $form->getValue('modalidad');
-                $torneo = $form->getValue('torneo');
                 $tipo = $form->getValue('tipo');
                 $categoria = $form->getValue('categoria');
                 $ranking = $form->getValue('ranking');
-                $grupo = $form->getValue('grupo');
-                $pareja = $form->getValue('pareja');
 
                 try {
                     // open connection to MongoDB server
@@ -153,12 +144,9 @@ class JugadorController extends Zend_Controller_Action
                     $doc['nombre'] = $nombre;
                     $doc['documento'] = $documento;
                     $doc['modalidad'] = $modalidad;
-                    $doc['torneo'] = $torneo;
                     $doc['tipo'] = $tipo;
                     $doc['categoria'] = $categoria;
                     $doc['ranking'] = $ranking;
-                    $doc['grupo'] = $grupo;
-                    $doc['pareja'] = $pareja;
 
                     $collection->save($doc);
 //                    echo 'Inserted document with ID: ' . $item['_id'];

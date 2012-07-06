@@ -20,16 +20,7 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $modalidad = $this->createElement('select', 'modalidad');
         $modalidad->setLabel("Modalidad:")->setRequired(true);
         $modalidad->addMultiOption('Masculino', 'Masculino');        
-        $modalidad->addMultiOption('Femenino', 'Femenino');        
-       
-        //creamos select para seleccionar torneo
-        $torneo = $this->createElement('select', 'torneo');
-        $torneo->setLabel("Torneo:");
-        $datos = Application_Model_Torneo::all();
-        foreach($datos as $c)
-        {
-            $torneo->addMultiOption($c->_id,$c->nombre);
-        }
+        $modalidad->addMultiOption('Femenino', 'Femenino');
 
         //creamos <input text> para escribir el tipo del jugador
         $tipo = $this->createElement('select', 'tipo');
@@ -51,32 +42,12 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $ranking->setLabel('Ranking (Posición):')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim');
         
-        //creamos select para seleccionar torneo
-        $grupo = $this->createElement('select', 'grupo');
-        $grupo->setLabel("Grupo:");
-        $grupo->addMultiOption(1,'Ninguno');
-        $datos = Application_Model_Grupo::all();
-        foreach($datos as $c)
-        {
-            $grupo->addMultiOption($c->_id,$c->nombre);
-        }
-        
-        //creamos select para seleccionar torneo
-        $pareja = $this->createElement('select', 'pareja');
-        $pareja->setLabel("Pareja:");
-        $pareja->addMultiOption(1,'Ninguno');
-        $datos = Application_Model_Pareja::all();
-        foreach($datos as $c)
-        {
-            $pareja->addMultiOption($c->_id,$c->nombre);
-        }
-        
         //boton para enviar formulario
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-        $this->addElements(array($nombre,$documento,$modalidad,$torneo,$tipo,$categoria,$ranking,$grupo,$pareja,$submit));
+        $this->addElements(array($nombre,$documento,$modalidad,$tipo,$categoria,$ranking,$submit));
     }
 }
 

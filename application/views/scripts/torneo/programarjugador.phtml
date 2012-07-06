@@ -1,0 +1,29 @@
+<?php echo $this->form; ?>
+
+<table class="sortable">
+    <thead>
+        <tr>            
+            <th>Nombre</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <!--    recorro el arreglo de datos-->
+        <?php foreach ($this->dato as $d): ?>
+            <!--           por cada fila, muestro sus datos -->
+            <tr>
+                <td>
+                <?php
+                $datos1 = Application_Model_Jugador::find($d->jugador);
+                if($datos1=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos1->nombre);
+                ?>
+                </td>
+            </tr>
+            <!--    fin del for-->
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<center><button>Agregar Jueces</button></center>

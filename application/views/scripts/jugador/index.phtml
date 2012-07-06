@@ -20,12 +20,9 @@
             <th>Nombre</th>
             <th>Documento</th>
             <th>Modalidad</th>
-            <th>Torneo</th>
             <th>Tipo</th>
             <th>Categoria</th>
             <th>Ranking</th>
-            <th>Grupo</th>
-            <th>Pareja</th>
             <th>Acción</th>
         </tr>
     </thead>
@@ -42,15 +39,6 @@
                 <!--                    fecha del album-->
                 <td><?php echo $this->escape($d->modalidad); ?></td>
                 <!--                        descripcion-->
-                <td>
-                <?php
-                $datos1 = Application_Model_Torneo::find($d->torneo);
-                if($datos1=="")
-                    echo "Ninguno";
-                else
-                    echo $this->escape($datos1->nombre);
-                ?>
-                </td>
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->tipo); ?></td>
                 <!--                        descripcion-->
@@ -66,27 +54,7 @@
                 <!--                        descripcion-->
                 <td><?php echo $this->escape($d->ranking); ?></td>
                 <!--                        descripcion-->
-                <td>
-                <?php
-                $datos3 = Application_Model_Grupo::find($d->grupo);
-                if($datos3=="")
-                    echo "Ninguno";
-                else
-                    echo $this->escape($datos3->nombre);
-                ?>
-                </td>
-                <!--                        descripcion-->
-                <td>
-                <?php
-                $datos4= Application_Model_Pareja::find($d->pareja);
-                if($datos4=="")
-                    echo "Ninguno";
-                else
-                    echo $this->escape($datos4->nombre);
-                ?>
-                </td>
-                <!--                   enlace para borrar el album-->
-                
+                               
                 <td><a href="<?php  echo $this->url(array('controller' => 'jugador', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
                     <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 
                 </td>

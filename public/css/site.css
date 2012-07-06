@@ -79,6 +79,7 @@ td,div,body {
 #container {
 }
 
+
 #left {
     background: #fff;
 }
@@ -183,4 +184,27 @@ a:hover {
 #menu p a:hover
 {
     text-decoration: underline;
+}
+#intro
+{
+ background-image: url('/images/indeximagne.jpg'); 
+/* width: 900px;
+ height:400px;
+ */
+    
+}
+#izquierdo{
+     width: 800px;
+     height:400px;
+      
+}
+.superior
+{
+   width: 800px;
+   margin: 0 auto;
+}
+.columna
+{
+   width: 100%;
+   height: 200px;
 }

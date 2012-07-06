@@ -46,8 +46,6 @@ class JuezController extends Zend_Controller_Action {
                 $nombre = $form->getValue('nombre');
                 $documento = $form->getValue('documento');
                 $experiencia = $form->getValue('experiencia');
-                $torneo = $form->getValue('torneo');
-
 
                 try {
                     // open connection to MongoDB server
@@ -64,7 +62,6 @@ class JuezController extends Zend_Controller_Action {
                         'nombre' => $nombre,
                         'documento' => $documento,
                         'experiencia' => $experiencia,
-                        'torneo' => $torneo,
                     );
                     $collection->insert($item);
                     echo 'Inserted document with ID: ' . $item['_id'];
@@ -121,7 +118,6 @@ class JuezController extends Zend_Controller_Action {
                 $nombre = $form->getValue('nombre');
                 $documento = $form->getValue('documento');
                 $experiencia = $form->getValue('experiencia');
-                $torneo = $form->getValue('torneo');
 
                 try {
                     // open connection to MongoDB server
@@ -145,8 +141,6 @@ class JuezController extends Zend_Controller_Action {
                     $doc['nombre'] = $nombre;
                     $doc['documento'] = $documento;
                     $doc['experiencia'] = $experiencia;
-                    $doc['torneo'] = $torneo;
-
 
                     $collection->save($doc);
 //                    echo 'Inserted document with ID: ' . $item['_id'];

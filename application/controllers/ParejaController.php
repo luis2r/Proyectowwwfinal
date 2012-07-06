@@ -8,6 +8,7 @@ class ParejaController extends Zend_Controller_Action {
 
     public function indexAction() {
         // action body
+        // creo objeto que maneja la tabla album              
         $table = Application_Model_Pareja::all();
         //obtengo listado de todas las filas de la tabla, y las
         //coloco en la variable datos de la pagina web (de la vista) 
@@ -41,7 +42,8 @@ class ParejaController extends Zend_Controller_Action {
                 //aca ya estamos seguros de que los datos son validos
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
-                $nombre = $form->getValue('nombre');
+                $jugadoruno = $form->getValue('jugadoruno');
+                $jugadordos = $form->getValue('jugadordos');
 
                 try {
                     // open connection to MongoDB server
@@ -52,7 +54,8 @@ class ParejaController extends Zend_Controller_Action {
                     $collection = $db->pareja;
                     // insert a new document
                     $item = array(
-                        'nombre' => $nombre
+                        'jugadoruno' => $jugadoruno,
+                        'jugadordos' => $jugadordos,
                     );
                     $collection->insert($item);
                     // disconnect from server
@@ -103,8 +106,8 @@ class ParejaController extends Zend_Controller_Action {
                 //ahora los extraemos como se ve abajo
 //                $jugadorCrear = new Application_Model_Jugador();
                 $_id = $this->_getParam('_id', 0);
-                $nombre = $form->getValue('nombre');
-                
+                $jugadoruno = $form->getValue('jugadoruno');
+                $jugadordos = $form->getValue('jugadordos');                
 
                 try {
                     // open connection to MongoDB server
@@ -125,7 +128,8 @@ class ParejaController extends Zend_Controller_Action {
 
                     // update document with new values
                     // save back to collection
-                    $doc['nombre'] = $nombre;                    
+                    $doc['jugadoruno'] = $jugadoruno;
+                    $doc['jugadordos'] = $jugadordos;
 //                    $doc['torneo'] = $torneo;
 
 

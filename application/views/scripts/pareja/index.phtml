@@ -17,7 +17,8 @@
     <thead>
         <tr>
             <th>Identificador</th>
-            <th>Nombre</th>
+            <th>Jugador uno</th>
+            <th>Jugador dos</th>
             <th>Acción</th>
     
         </tr>
@@ -27,10 +28,26 @@
         <?php foreach ($this->datos as $d): ?>
             <!--           por cada fila, muestro sus datos -->
             <tr>
-                <td><?php echo $this->escape($d->_id); ?></td>
-                <!--            nombre del album, con un enlace para editar el album-->
-                <td><a href="<?php echo $this->url(array('controller' => 'pareja', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->nombre; ?></a></td>
-                         <!--                   enlace para borrar el album-->
+                <td><a href="<?php echo $this->url(array('controller' => 'pareja', 'action' => 'modificar', '_id' => $d->_id)); ?>"><?php echo $d->_id; ?></a></td>
+                <!--                   enlace para borrar el album-->
+                <td>
+                <?php
+                $datos1 = Application_Model_Jugador::find($d->jugadoruno);
+                if($datos1=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos1->nombre);
+                ?>
+                </td>
+                <td>
+                <?php
+                $datos2 = Application_Model_Jugador::find($d->jugadordos);
+                if($datos2=="")
+                    echo "Ninguno";
+                else
+                    echo $this->escape($datos2->nombre);
+                ?>
+                </td>
                 
                 <td><a href="<?php  echo $this->url(array('controller' => 'pareja', 'action' => 'modificar', '_id' => $d->_id)); ?>"><span title="Editar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/pencil.png" /></span></a>&nbsp;&nbsp;  
                     <a onclick="confirmDelete('<?php echo $d->_id; ?>')" >  <span title="Eliminar"><img class="imageCn1t1" src="../public/Icons/PNG/16px/minus.png" /></span></a> 
