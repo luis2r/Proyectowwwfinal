@@ -1,0 +1,7 @@
+<h3>Cuenta</h3>
+<?php if($this->identity == null) { ?>
+<p>Para loguearse haga <a href='/zendwww/public/user/login'>click aquí</a></p>
+<?php }else{ ?>
+<p>Bienvenido<strong> <?php echo $this->identity->first_name;?></strong></p>
+<p>Para salir haga <a href='/zendwww/public/user/logout'>click aquí</a></p>
+<?php } ?>

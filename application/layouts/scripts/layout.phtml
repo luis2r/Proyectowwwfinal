@@ -28,7 +28,10 @@
         echo $this->jQuery()
                 ->setVersion('1.4.2')
                 ->setUiVersion('1.8.2');
+        $this->layout()->userForm = $this->action('index', 'user');
+
         ?>
+        
     </head>
     <body id="wrap1">
         <div id="wrap" class="clearfix">
@@ -49,6 +52,16 @@
                     <?= $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" : "); ?>
                 </div>
             </div>
+             <div id="adminMenu">
+                    <?php
+                    echo $this->layout()->adminMenu;
+                    ?>&nbsp;
+                </div>
+            <div id="userForm">
+                    <?php
+                    echo $this->layout()->userForm;
+                    ?>&nbsp;
+                </div>
             <h1><?php echo $this->title; ?></h1>
 
             <div class="contenido">
