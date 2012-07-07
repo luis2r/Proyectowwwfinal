@@ -45,10 +45,7 @@ class JugadorController extends Zend_Controller_Action
                 $nombre = $form->getValue('nombre');
                 $documento = $form->getValue('documento');
                 $modalidad = $form->getValue('modalidad');
-<<<<<<< HEAD
                 $tipo = $form->getValue('tipo');
-=======
->>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
                 $categoria = $form->getValue('categoria');
                 $ranking = $form->getValue('ranking');                
 //                $status = $jugadorCrear->save();
@@ -65,10 +62,7 @@ class JugadorController extends Zend_Controller_Action
                         'nombre' => $nombre,
                         'documento' => $documento,
                         'modalidad' => $modalidad,
-<<<<<<< HEAD
                         'tipo' => $tipo,
-=======
->>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
                         'categoria' => $categoria,
                         'ranking' => $ranking
                     );
@@ -124,10 +118,7 @@ class JugadorController extends Zend_Controller_Action
                 $nombre = $form->getValue('nombre');
                 $documento = $form->getValue('documento');
                 $modalidad = $form->getValue('modalidad');
-<<<<<<< HEAD
                 $tipo = $form->getValue('tipo');
-=======
->>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
                 $categoria = $form->getValue('categoria');
                 $ranking = $form->getValue('ranking');
 
@@ -153,10 +144,7 @@ class JugadorController extends Zend_Controller_Action
                     $doc['nombre'] = $nombre;
                     $doc['documento'] = $documento;
                     $doc['modalidad'] = $modalidad;
-<<<<<<< HEAD
                     $doc['tipo'] = $tipo;
-=======
->>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
                     $doc['categoria'] = $categoria;
                     $doc['ranking'] = $ranking;
 

@@ -27,7 +27,7 @@ class UserController extends Zend_Controller_Action
                 return $this->_forward('list');
             }
         }
-        $userForm->setAction('/zendwww/public/user/create');
+        $userForm->setAction('/Proyectowwwfinal/public/user/create');
         $this->view->form = $userForm;
     }
 
@@ -67,7 +67,7 @@ class UserController extends Zend_Controller_Action
                 $userModel->updatePassword(
                         $passwordForm->getValue('id'), $passwordForm->getValue('password')
                 );
-                return $this->_forward('/zendwww/public/user/list');
+                return $this->_forward('/Proyectowwwfinal/public/user/list');
             }
         } else {
             $id = $this->_request->getParam('id');
@@ -87,7 +87,7 @@ class UserController extends Zend_Controller_Action
     public function loginAction() {
         // action body
         $userForm = new Application_Form_User();
-        $userForm->setAction('/zendwww/public/user/login');
+        $userForm->setAction('/Proyectowwwfinal/public/user/login');
         $userForm->removeElement('first_name');
         $userForm->removeElement('last_name');
         $userForm->removeElement('role');

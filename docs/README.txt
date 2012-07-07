@@ -14,13 +14,13 @@ Setting Up Your VHOST
 The following is a sample VHOST you might want to consider for your project.
 
 <VirtualHost *:80>
-   DocumentRoot "/home/luis/public_html/zendwww/public"
-   ServerName zendwww.local
+   DocumentRoot "/home/luis/public_html/Proyectowwwfinal/public"
+   ServerName Proyectowwwfinal.local
 
    # This should be omitted in the production environment
    SetEnv APPLICATION_ENV development
 
-   <Directory "/home/luis/public_html/zendwww/public">
+   <Directory "/home/luis/public_html/Proyectowwwfinal/public">
        Options Indexes MultiViews FollowSymLinks
        AllowOverride All
        Order allow,deny

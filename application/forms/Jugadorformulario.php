@@ -41,11 +41,8 @@ class Application_Form_Jugadorformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agrego los objetos creados al formulario
-<<<<<<< HEAD
-        $this->addElements(array($nombre,$documento,$modalidad,$tipo,$categoria,$ranking,$submit));
-=======
         $this->addElements(array($nombre,$documento,$modalidad,$categoria,$ranking,$submit));
->>>>>>> branch 'master' of https://github.com/luis2r/zendwww.git
+
     }
 }
 
