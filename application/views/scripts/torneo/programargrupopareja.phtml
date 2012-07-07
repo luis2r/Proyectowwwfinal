@@ -1,0 +1,80 @@
+<?php echo $this->form; ?>
+
+<table class="sortable">
+    <thead>
+        <tr>            
+            <th>Nombre</th>   
+            <th>Pareja 1</th>   
+            <th>Pareja 2</th>   
+            <th>Pareja 3</th>   
+            <th>Pareja 4</th>   
+        </tr>
+    </thead>
+    <tbody>
+        <!--    recorro el arreglo de datos-->
+        <?php foreach ($this->dato as $d): ?>
+            <!--           por cada fila, muestro sus datos -->
+            <?php                                
+                if(is_int($d->_id))
+                {    
+                    $var1=0;
+                    $var2=0;
+                    $var3=0;
+                    $var4=0;
+                }    
+                else
+                {    
+                    $datos1 = Application_Model_Pareja::find($d->pareja1);                    
+                    if($datos1=="")
+                      $var1 = "Ninguno";        
+                    else
+                    {                          
+                        $dato1 = Application_Model_Jugador::find($datos1->jugadoruno);
+                        $dato2 = Application_Model_Jugador::find($datos1->jugadordos);
+                        $var1 = $dato1->nombre.' - '.$dato2->nombre;
+                    }
+                    
+                    $datos2 = Application_Model_Pareja::find($d->pareja2);
+                    if($datos2=="")
+                      $var2 = "Ninguno";         
+                    else
+                    {                          
+                        $dato1 = Application_Model_Jugador::find($datos2->jugadoruno);
+                        $dato2 = Application_Model_Jugador::find($datos2->jugadordos);
+                        $var2 = $dato1->nombre.' - '.$dato2->nombre;
+                    }
+                    
+                    $datos3 = Application_Model_Pareja::find($d->pareja3);
+                    if($datos3=="")
+                      $var3 = "Ninguno";         
+                    else
+                    {                          
+                        $dato1 = Application_Model_Jugador::find($datos3->jugadoruno);
+                        $dato2 = Application_Model_Jugador::find($datos3->jugadordos);
+                        $var3 = $dato1->nombre.' - '.$dato2->nombre;
+                    }
+                    
+                    $datos4 = Application_Model_Pareja::find($d->pareja4);
+                    if($datos4=="")
+                      $var4 = "Ninguno";         
+                    else
+                    {                          
+                        $dato1 = Application_Model_Jugador::find($datos4->jugadoruno);
+                        $dato2 = Application_Model_Jugador::find($datos4->jugadordos);
+                        $var4 = $dato1->nombre.' - '.$dato2->nombre;
+                    }
+                }
+                if(is_string($var1)) {?>
+                <tr><td><?php echo $this->escape($d->nombre); ?></td>
+                <td><?php echo $this->escape($var1); }?></td>
+                <?php if(is_string($var2)) {?>
+                <td><?php echo $this->escape($var2); }?></td>
+                <?php if(is_string($var3)) {?>
+                <td><?php echo $this->escape($var3); }?></td>
+                <?php if(is_string($var4)) {?>
+                <td><?php echo $this->escape($var4); }?></td></tr>
+            <!--    fin del for-->
+        <?php endforeach; ?>
+    </tbody>
+</table>
+

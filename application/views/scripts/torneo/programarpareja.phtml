@@ -34,3 +34,9 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<?php  
+$table = Application_Model_Programarjugador::one();
+$dato = $table->torneo;
+?>
+<center><a href="<?php echo $this->url(array('controller' => 'torneo', 'action' => 'programargrupojugador', '_id' => $dato)); ?>"><button>Asignar Jugador a Grupo</button></a></center>

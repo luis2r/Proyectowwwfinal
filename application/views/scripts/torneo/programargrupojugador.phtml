@@ -1,0 +1,69 @@
+<?php echo $this->form; ?>
+
+<table class="sortable">
+    <thead>
+        <tr>            
+            <th>Nombre</th>   
+            <th>Jugador 1</th>   
+            <th>Jugador 2</th>   
+            <th>Jugador 3</th>   
+            <th>Jugador 4</th>   
+        </tr>
+    </thead>
+    <tbody>
+        <!--    recorro el arreglo de datos-->
+        <?php foreach ($this->dato as $d): ?>
+            <!--           por cada fila, muestro sus datos -->
+            <?php                                
+                if(is_int($d->_id))
+                {    
+                    $var1=0;
+                    $var2=0;
+                    $var3=0;
+                    $var4=0;
+                }    
+                else
+                {    
+                    $datos1 = Application_Model_Jugador::find($d->jugador1);                    
+                    if($datos1=="")
+                      $var1 = "Ninguno";         
+                    else
+                        $var1 = $datos1->nombre;
+                    
+                    $datos2 = Application_Model_Jugador::find($d->jugador2);
+                    if($datos2=="")
+                      $var2 = "Ninguno";         
+                    else
+                        $var2 = $datos2->nombre;
+                    
+                    $datos3 = Application_Model_Jugador::find($d->jugador3);
+                    if($datos3=="")
+                      $var3 = "Ninguno";         
+                    else
+                        $var3 = $datos3->nombre;
+                    
+                    $datos4 = Application_Model_Jugador::find($d->jugador4);
+                    if($datos4=="")
+                      $var4 = "Ninguno";         
+                    else
+                        $var4 = $datos4->nombre;
+                }
+                if(is_string($var1)) {?>
+                <tr><td><?php echo $this->escape($d->nombre); ?></td>
+                <td><?php echo $this->escape($var1); }?></td>
+                <?php if(is_string($var2)) {?>
+                <td><?php echo $this->escape($var2); }?></td>
+                <?php if(is_string($var3)) {?>
+                <td><?php echo $this->escape($var3); }?></td>
+                <?php if(is_string($var4)) {?>
+                <td><?php echo $this->escape($var4); }?></td></tr>
+            <!--    fin del for-->
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php  
+$table = Application_Model_Programarjugador::one();
+$dato = $table->torneo;
+?>
+<center><a href="<?php echo $this->url(array('controller' => 'torneo', 'action' => 'programargrupopareja', '_id' => $dato)); ?>"><button>Asignar Pareja a Grupo</button></a></center>
