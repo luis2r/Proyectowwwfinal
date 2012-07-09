@@ -25,7 +25,7 @@ class Application_Form_ProgramarGrupoParejaformulario extends Zend_Form
             }    
             else
             { 
-                $dato4 = Application_Model_pareja::find($c->pareja);
+                $dato4 = Application_Model_Pareja::find($c->pareja);
                 if($dato4=="")
                     $var = "Ninguno";
                 else

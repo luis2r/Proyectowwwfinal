@@ -12,7 +12,6 @@ class Application_Form_Torneoformulario extends Zend_Form
         $nombre->setLabel('Nombre:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
-
             
         $modalidad = $this->createElement('select', 'modalidad');
         $modalidad->setLabel("Modalidad:")->setRequired(true);
@@ -24,15 +23,49 @@ class Application_Form_Torneoformulario extends Zend_Form
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
         
-        $fechainicio = new Zend_Form_Element_Text('fechainicio');
-        $fechainicio->setLabel('Fecha de inicio:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
+        $fechainicio = new ZendX_JQuery_Form_Element_DatePicker(
+                'dp1',
+                array('jQueryParams' => array(
+                    'defaultDate' => '2012/10/10',
+                    'closeText' => 'Cerrar',
+                    'prevText' => '<Ant',
+                    'nextText' => 'Sig',
+                    'currentText' => 'Hoy',
+                    'monthNames' => array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'),
+                    'monthNamesShort' => array('Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'),
+                    'dayNames' => array('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'),
+                    'dayNamesShort' => array('Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'),
+                    'dayNamesMin' => array('Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'),
+                    'weekHeader' => 'Sm',
+                    'dateFormat' => 'dd/mm/yy',
+                    'firstDay' => 1,
+                    'isRTL' => false)));
+//        $fechainicio->setLabel('Fecha de inicio:')->setRequired(true)->
+//                addFilter('StripTags')->addFilter('StringTrim')->
+//                addValidator('NotEmpty');
 
-        $fechafin = new Zend_Form_Element_Text('fechafin');
-        $fechafin->setLabel('Fecha de finalizacion:')->setRequired(true)->
-                addFilter('StripTags')->addFilter('StringTrim')->
-                addValidator('NotEmpty');
+        
+        $fechafin = new ZendX_JQuery_Form_Element_DatePicker(
+                'dp2',
+                array('jQueryParams' => array(
+                    'defaultDate' => '2012/10/10',
+                    'closeText' => 'Cerrar',
+                    'prevText' => '<Ant',
+                    'nextText' => 'Sig',
+                    'currentText' => 'Hoy',
+                    'monthNames' => array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'),
+                    'monthNamesShort' => array('Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'),
+                    'dayNames' => array('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'),
+                    'dayNamesShort' => array('Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'),
+                    'dayNamesMin' => array('Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'),
+                    'weekHeader' => 'Sm',
+                    'dateFormat' => 'dd/mm/yy',
+                    'firstDay' => 1,
+                    'isRTL' => false)));
+//        $fechafin->setLabel('Fecha de finalizacion:')->setRequired(true)->
+//                addFilter('StripTags')->addFilter('StringTrim')->
+//                addValidator('NotEmpty');
+        
         
         $descripcion = new Zend_Form_Element_Textarea('descripcion');
         $descripcion->setLabel('Descripcion:')->setRequired(true)->
@@ -44,6 +77,6 @@ class Application_Form_Torneoformulario extends Zend_Form
         $submit->setAttrib('id', 'submitbutton');
         
         //agregolos objetos creados al formulario
-        $this->addElements(array($nombre,$modalidad,$duracion,$fechainicio,$fechafin,$descripcion, $submit));
+        $this->addElements(array($nombre,$modalidad,$duracion,$fechainicio,$fechafin,$descripcion,$submit));
     }
 }
