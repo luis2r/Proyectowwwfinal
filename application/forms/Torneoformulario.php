@@ -22,31 +22,14 @@ class Application_Form_Torneoformulario extends Zend_Form
         $duracion->setLabel('Duracion:')->setRequired(true)->
                 addFilter('StripTags')->addFilter('StringTrim')->
                 addValidator('NotEmpty');
-        
-        $fechainicio = new ZendX_JQuery_Form_Element_DatePicker(
-                'dp1',
-                array('jQueryParams' => array(
-                    'defaultDate' => '2012/10/10',
-                    'closeText' => 'Cerrar',
-                    'prevText' => '<Ant',
-                    'nextText' => 'Sig',
-                    'currentText' => 'Hoy',
-                    'monthNames' => array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'),
-                    'monthNamesShort' => array('Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'),
-                    'dayNames' => array('Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'),
-                    'dayNamesShort' => array('Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'),
-                    'dayNamesMin' => array('Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'),
-                    'weekHeader' => 'Sm',
-                    'dateFormat' => 'dd/mm/yy',
-                    'firstDay' => 1,
-                    'isRTL' => false)));
-//        $fechainicio->setLabel('Fecha de inicio:')->setRequired(true)->
-//                addFilter('StripTags')->addFilter('StringTrim')->
-//                addValidator('NotEmpty');
-
-        
+                
+        $fechainicio = new Zend_Form_Element_Text('fechainicio');
+        $fechainicio->setLabel('Fecha Inicio:')->setRequired(true)->
+                addFilter('StripTags')->addFilter('StringTrim')->
+                addValidator('NotEmpty');
+                
         $fechafin = new ZendX_JQuery_Form_Element_DatePicker(
-                'dp2',
+                'fechafin',
                 array('jQueryParams' => array(
                     'defaultDate' => '2012/10/10',
                     'closeText' => 'Cerrar',
@@ -62,9 +45,12 @@ class Application_Form_Torneoformulario extends Zend_Form
                     'dateFormat' => 'dd/mm/yy',
                     'firstDay' => 1,
                     'isRTL' => false)));
-//        $fechafin->setLabel('Fecha de finalizacion:')->setRequired(true)->
-//                addFilter('StripTags')->addFilter('StringTrim')->
-//                addValidator('NotEmpty');
+        $fechainicio->setJQueryParam('dateFormat', 'yy-mm-dd');
+$fechainicio->setJQueryParam('changeYear', 'true');
+$fechainicio->setJqueryParam('changeMonth', 'true');
+$fechainicio->setJqueryParam('regional', 'es');
+$fechainicio->setJqueryParam('yearRange', "1905:2011");
+$fechainicio->setRequired(true);
         
         
         $descripcion = new Zend_Form_Element_Textarea('descripcion');
