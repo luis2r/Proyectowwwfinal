@@ -150,7 +150,7 @@ class TorneoController extends Zend_Controller_Action
                     $doc['modalidad'] = $modalidad;
                     $doc['duracion'] = $duracion;
                     $doc['fechainicio'] = $fechainicio;
-                    $doc['fechaifin'] = $fechafin;
+                    $doc['fechafin'] = $fechafin;
                     $doc['descripcion'] = $descripcion;
 
                     $collection->save($doc);
